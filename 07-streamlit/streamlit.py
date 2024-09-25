@@ -90,9 +90,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Resto de tu aplicación Streamlit
-st.title("Mi Aplicación Streamlit")
-
 
 
 
