@@ -14,7 +14,7 @@ st.markdown("""
             flex-shrink: unset !important;
         }
 
-        @media(hover:hover) and (min-width: 500px) and (max-width: 769px) {
+        @media (hover:hover) and (min-width: 500px) and (max-width: 769px) {
             header[data-testid="stHeader"] {
                 display: none;
             }
@@ -48,7 +48,7 @@ st.markdown("""
             }
         }
 
-        @media(hover: hover) and (min-width: 769px) {
+        @media (hover: hover) and (min-width: 769px) {
             header[data-testid="stHeader"] {
                 display: none;
             }
