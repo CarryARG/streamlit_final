@@ -158,8 +158,8 @@ if tabs=="Home":
                     
                     st.markdown(f'<h3 style="text-align: center;">{persona["profesion"]}</h3>', unsafe_allow_html=True)
             
-                    linkedin_logo = get_image_b64("./images/LI-In-Bug.png")  # Convert local LinkedIn logo to base64
-                    github_logo = get_image_b64("./images/github-mark-white.png")  # Convert local GitHub logo to base64
+                    linkedin_logo = get_image_b64("./07-streamlit/images/LI-In-Bug.png")  # Convert local LinkedIn logo to base64
+                    github_logo = get_image_b64("./07-streamlit/images/github-mark-white.png")  # Convert local GitHub logo to base64
             
                     # Display the logos in a div
                     st.markdown(
