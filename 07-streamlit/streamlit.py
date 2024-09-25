@@ -69,7 +69,7 @@ if tabs=="Home":
             img1 = Image.open('./images/g1-logo.png')        
             
             # Convert the image to base64
-            with open(./"images/g1-logo.png", "rb") as img_file:
+            with open("./images/g1-logo.png", "rb") as img_file:
                 b64_1 = base64.b64encode(img_file.read()).decode()
             
             # Open the second image file
