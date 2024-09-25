@@ -66,17 +66,17 @@ if tabs=="Home":
             # Open the image file
             
             # Open the first image file
-            img1 = Image.open('images/g1-logo.png')        
+            img1 = Image.open('./images/g1-logo.png')        
             
             # Convert the image to base64
-            with open("images/g1-logo.png", "rb") as img_file:
+            with open(./"images/g1-logo.png", "rb") as img_file:
                 b64_1 = base64.b64encode(img_file.read()).decode()
             
             # Open the second image file
-            img2 = Image.open('images/walg-logo.png')  # Replace with the path to your second logo
+            img2 = Image.open('./images/walg-logo.png')  # Replace with the path to your second logo
             
             # Convert the image to base64
-            with open("images/walg-logo.png", "rb") as img_file:  # Replace with the path to your second logo
+            with open("./images/walg-logo.png", "rb") as img_file:  # Replace with the path to your second logo
                 b64_2 = base64.b64encode(img_file.read()).decode()
             
             # Display the images
@@ -109,14 +109,14 @@ if tabs=="Home":
                     "profesion": "Project Manager & Data Scientist ",
                     "github": "https://github.com/FlorLascu",
                     "linkedin": "https://www.linkedin.com/in/florencia-lascurain-1a890938/",
-                    "imagen_link":"images/Flor.png"
+                    "imagen_link":"./images/Flor.png"
                 },
                 {
                     "nombre": "Facundo Denis",
                     "profesion": "Machine Learning Engineer",
                     "github": "https://github.com/Facundo022",
                     "linkedin": "https://www.linkedin.com/in/facundo-nicolas-denis-60933b199/",
-                    "imagen_link":"images/Facu.png"
+                    "imagen_link":"./images/Facu.png"
                     
                 },
                 {
@@ -124,21 +124,21 @@ if tabs=="Home":
                     "profesion": "Machine Learning Engineer",
                     "github": "https://github.com/Kipros21",
                     "linkedin": "https://www.linkedin.com/in/cristhian-huanqui-tapia-35a653185/",
-                    "imagen_link":"images/Cris.png"
+                    "imagen_link":"./images/Cris.png"
                 },
                 {
                     "nombre": "Gabriel Rojas",
                     "profesion": "Data Analyst",
                     "github": "https://github.com/ga-romu",
                     "linkedin": "https://www.linkedin.com/in/g-a-ro-mu/",
-                    "imagen_link":"images/Gabi.png"
+                    "imagen_link":"./images/Gabi.png"
                 },
                                 {
                     "nombre": "	Iván Parra",
                     "profesion": "Data Engineer",
                     "github": "https://github.com/Ivan2125",
                     "linkedin": "https://www.linkedin.com/in/ivan-parra-2501/",
-                    "imagen_link":"images/Ivan.png"
+                    "imagen_link":"./images/Ivan.png"
                 }
             ]
 
@@ -158,8 +158,8 @@ if tabs=="Home":
                     
                     st.markdown(f'<h3 style="text-align: center;">{persona["profesion"]}</h3>', unsafe_allow_html=True)
             
-                    linkedin_logo = get_image_b64("images/LI-In-Bug.png")  # Convert local LinkedIn logo to base64
-                    github_logo = get_image_b64("images/github-mark-white.png")  # Convert local GitHub logo to base64
+                    linkedin_logo = get_image_b64("./images/LI-In-Bug.png")  # Convert local LinkedIn logo to base64
+                    github_logo = get_image_b64("./images/github-mark-white.png")  # Convert local GitHub logo to base64
             
                     # Display the logos in a div
                     st.markdown(
