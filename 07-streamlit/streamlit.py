@@ -1,16 +1,22 @@
 import streamlit as st
 
+# Configurar la página (debe ser la primera línea de código de Streamlit)
+st.set_page_config(
+    layout="wide",  # o "centered" según tus preferencias
+    page_title="Análisis de Sentimientos de Reviews de Walgreens",
+    page_icon="star"
+)
+
 # Inyectar el CSS personalizado
 st.markdown("""
     <style>
-        /* Eliminar el espacio en blanco en la parte superior de la página */
         body {
             margin: 0;
             padding: 0;
         }
 
         section[data-testid='stSidebar'] {
-            background-color: #2E3159;
+            background-color: #2E3159 !important;
             flex-shrink: unset !important;
         }
 
@@ -95,6 +101,7 @@ st.title("Mi Aplicación Streamlit")
 
 
 
+
 import base64
 import json
 import nltk
@@ -137,13 +144,6 @@ for package in nltk_packages:
 
 
 
-
-st.set_page_config(
-    layout= "wide",
-    page_title="Análisis de Sentimientos de Reviews de Walgreens en Google y Yelp",
-    page_icon="star",
-    initial_sidebar_state="expanded"
-)
 
 def get_style():
     with open('./07-streamlit/style.css') as f:
