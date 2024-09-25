@@ -1,32 +1,3 @@
-import base64
-import json
-import nltk
-import numpy as np
-import pandas as pd
-import requests
-import streamlit as st
-import streamlit.components.v1 as components
-from PIL import Image
-from gensim import corpora, models
-from gettext import gettext as _
-from scipy.linalg import triu
-from sklearn.neighbors import NearestNeighbors
-from statistics import mean
-from st_on_hover_tabs import on_hover_tabs
-from streamlit_folium import folium_static, st_folium
-
-# Organizar las importaciones
-import folium
-
-# Evitar la descarga de paquetes NLTK en cada ejecución
-nltk_packages = ['punkt', 'wordnet']
-for package in nltk_packages:
-    try:
-        nltk.data.find(f'tokenizers/{package}')
-    except LookupError:
-        nltk.download(package)
-
-
 import streamlit as st
 
 # Inyectar el CSS personalizado
@@ -115,6 +86,45 @@ st.markdown("""
 
 # Resto de tu aplicación Streamlit
 st.title("Mi Aplicación Streamlit")
+
+
+
+
+
+
+
+
+
+import base64
+import json
+import nltk
+import numpy as np
+import pandas as pd
+import requests
+import streamlit as st
+import streamlit.components.v1 as components
+from PIL import Image
+from gensim import corpora, models
+from gettext import gettext as _
+from scipy.linalg import triu
+from sklearn.neighbors import NearestNeighbors
+from statistics import mean
+from st_on_hover_tabs import on_hover_tabs
+from streamlit_folium import folium_static, st_folium
+
+# Organizar las importaciones
+import folium
+
+# Evitar la descarga de paquetes NLTK en cada ejecución
+nltk_packages = ['punkt', 'wordnet']
+for package in nltk_packages:
+    try:
+        nltk.data.find(f'tokenizers/{package}')
+    except LookupError:
+        nltk.download(package)
+
+
+
 
 
 
