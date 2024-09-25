@@ -88,7 +88,7 @@ st.markdown("""
             }
         }
     </style>
-, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 
 
@@ -142,12 +142,7 @@ for package in nltk_packages:
 
 
 
-def get_style():
-    with open('./07-streamlit/style.css') as f:
-        return f.read()
 
-style = get_style()
-st.markdown(f'<style>{style}</style>', unsafe_allow_html=True)
 
 
 with st.sidebar:
