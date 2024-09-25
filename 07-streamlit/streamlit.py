@@ -66,7 +66,7 @@ if tabs=="Home":
             # Open the image file
             
             # Open the first image file
-            img1 = Image.open('images/g1-logo.png')        
+            img1 = Image.open('/mount/src/streamlit_final/images/g1-logo.png')        
             
             # Convert the image to base64
             with open("images/g1-logo.png", "rb") as img_file:
