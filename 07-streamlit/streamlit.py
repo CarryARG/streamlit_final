@@ -27,6 +27,105 @@ for package in nltk_packages:
         nltk.download(package)
 
 
+import streamlit as st
+
+# Inyectar el CSS personalizado
+st.markdown("""
+    <style>
+        /* Eliminar el espacio en blanco en la parte superior de la página */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        section[data-testid='stSidebar'] {
+            background-color: #2E3159;
+            flex-shrink: unset !important;
+        }
+
+        @media (hover:hover) and (min-width: 500px) and (max-width: 769px) {
+            header[data-testid="stHeader"] {
+                display: none;
+            }
+
+            section[data-testid='stSidebar'] {
+                height: 10%;
+                min-width: 95px !important;
+                width: 95px !important;
+                margin-left: 305px;
+                position: relative;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #2E3159;
+                overflow-x: hidden;
+                transition: 0.5s ease;
+                padding-top: 0px;
+                white-space: nowrap;
+            }
+
+            section[data-testid='stSidebar']:hover {
+                min-width: 330px !important;
+            }
+
+            button[kind="header"] {
+                display: none;
+            }
+
+            div[data-testid="collapsedControl"] {
+                display: none;
+            }
+        }
+
+        @media (hover: hover) and (min-width: 769px) {
+            header[data-testid="stHeader"] {
+                display: none;
+            }
+
+            section[data-testid='stSidebar'] {
+                height: 10%;
+                min-width: 95px !important;
+                width: 95px !important;
+                transform: translateX(0px);
+                position: relative;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #2E3159;
+                overflow-x: hidden;
+                transition: 0.5s ease;
+                padding-top: 10px;
+                white-space: nowrap;
+            }
+
+            section[data-testid='stSidebar']:hover {
+                min-width: 250px !important;
+            }
+
+            button[kind="header"] {
+                display: none;
+            }
+
+            div[data-testid="collapsedControl"] {
+                display: none;
+            }
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Resto de tu aplicación Streamlit
+st.title("Mi Aplicación Streamlit")
+
+
+
+
+
+
+
+
+
+
+
 
 
 st.set_page_config(
