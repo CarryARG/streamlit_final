@@ -37,7 +37,7 @@ st.set_page_config(
 )
 
 def get_style():
-    with open('./style.css') as f:
+    with open('./07-streamlit/style.css') as f:
         return f.read()
 
 style = get_style()
