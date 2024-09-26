@@ -26,6 +26,23 @@ def get_image_b64(path):
     except FileNotFoundError:
         return None
 
+# Estilos personalizados
+st.markdown("""
+    <style>
+        body {
+            background-color: #2e2e2e;
+        }
+        .stApp {
+            background-color: #2e2e2e;
+        }
+        .centered-img {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # Menú de navegación
 page = st.sidebar.selectbox("Selecciona una página:", ["Home", "Dashboard", "Modelos"])
 
@@ -38,16 +55,12 @@ if page == "Home":
     with open("./07-streamlit/images/arcope-logo.jpeg", "rb") as img_file:
         b64_1 = base64.b64encode(img_file.read()).decode()
     
-    # Open the second image file
-    img2 = Image.open('./07-streamlit/images/arcope-logo.jpeg')  # Replace with the path to your second logo
-    
-    # Convert the image to base64
-    with open("./07-streamlit/images/arcope-logo.jpeg", "rb") as img_file:  # Replace with the path to your second logo
-        b64_2 = base64.b64encode(img_file.read()).decode()
-    
-    # Display the images
-    st.markdown(f'<div style="display: flex; justify-content: center; align-items: center;"><img src="data:./07-streamlit/image/jpeg;base64,{b64_1}" style="margin-right: 10px; width: 300px; height: 300px;" /><img src="data:./07-streamlit/image/jpeg;base64,{b64_2}" style="margin-left: 100px; width: 600px; height: 200px;" /></div>', unsafe_allow_html=True)
-    
+    # Display the logo image centered
+    st.markdown(f'''
+        <div class="centered-img">
+            <img src="data:image/jpeg;base64,{b64_1}" style="width: 300px; height: 300px;" />
+        </div>
+    ''', unsafe_allow_html=True)
     
     st.header("Bienvenidos ⭐", divider='rainbow')
     
@@ -105,7 +118,7 @@ if page == "Home":
             "linkedin": "https://www.linkedin.com/",
             "imagen_link": "./07-streamlit/images/manuel.jpeg"
         },
-                {
+        {
             "nombre": "Lucas Carranza",
             "profesion": "Data Engineer",
             "github": "https://github.com/",
@@ -147,4 +160,3 @@ elif page == "Modelos":
     st.header("Modelos de Machine Learning")
     st.write("Aquí puedes agregar el contenido relacionado con los modelos de machine learning.")
     # Agrega los elementos y modelos necesarios
-
