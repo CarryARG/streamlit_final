@@ -107,7 +107,10 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
-from gensim import corpora, models
+import gensim
+import scipy.linalg
+from gensim import corpora
+from gensim import models
 from numpy import triu
 from scipy.linalg import get_blas_funcs
 from sklearn.neighbors import NearestNeighbors
