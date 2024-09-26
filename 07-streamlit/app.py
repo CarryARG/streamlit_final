@@ -28,6 +28,20 @@ def get_image_b64(path):
 
 # Definir las páginas
 def home_page():
+    # Abrir la imagen del logo
+    img1 = Image.open('./07-streamlit/images/arcope-logo.jpeg')        
+
+    # Convertir la imagen a base64
+    with open("./07-streamlit/images/arcope-logo.jpeg", "rb") as img_file:
+        b64_1 = base64.b64encode(img_file.read()).decode()
+
+    # Mostrar la imagen del logo centrada
+    st.markdown(f'''
+        <div class="centered-img" style="display: flex; justify-content: center; margin-top: 20px;">
+            <img src="data:image/jpeg;base64,{b64_1}" style="width: 300px; height: 300px;" />
+        </div>
+    ''', unsafe_allow_html=True)
+    
     st.header("Bienvenidos ⭐", divider='rainbow')
     
     intro = """
@@ -45,6 +59,77 @@ def home_page():
     st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{d}</h3>', unsafe_allow_html=True)
     st.divider()
 
+    # Información del equipo
+    st.header("Desarrollado por ⚙️", divider='rainbow')
+
+    personas = [
+        {
+            "nombre": "Cristian Moreira",
+            "profesion": "Project Manager",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/cristian.jpeg"
+        },
+        {
+            "nombre": "Andres Aguirre",
+            "profesion": "Technical Project Manager - Data Analytics",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/andres.jpeg"
+        },
+        {
+            "nombre": "Jeison Zapata",
+            "profesion": "Data Scientist - Data Analyst",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/jeison.jpeg"
+        },
+        {
+            "nombre": "Libardo Alarcon",
+            "profesion": "Data Scientist",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/libardo.jpeg"
+        },
+        {
+            "nombre": "Manuel Carruitero",
+            "profesion": "Data Engineer",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/manuel.jpeg"
+        },
+        {
+            "nombre": "Lucas Carranza",
+            "profesion": "Data Engineer",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/lucas.jpeg"
+        }
+    ]
+
+    columns = st.columns(len(personas))
+    for idx, persona in enumerate(personas):
+        with columns[idx]:
+            st.markdown(f'<h2 style="text-align: center;">{persona["nombre"]}</h2>', unsafe_allow_html=True)
+            persona_image = get_image_b64(persona["imagen_link"])
+            if persona_image:
+                st.markdown(f'<div style="display: flex; justify-content: center;"><img src="data:image/png;base64,{persona_image}" width="200"/></div>', unsafe_allow_html=True)
+            st.markdown(f'<h3 style="text-align: center;">{persona["profesion"]}</h3>', unsafe_allow_html=True)
+
+            # Logos de redes sociales
+            linkedin_logo = get_image_b64("./07-streamlit/images/LI-In-Bug.png")
+            github_logo = get_image_b64("./07-streamlit/images/github-mark-white.png")
+            st.markdown(
+                f'''
+                <div style="display: flex; justify-content: center;">
+                    <a href="{persona["linkedin"]}"><img src="data:image/png;base64,{linkedin_logo}" alt="LinkedIn" width="50"/></a>
+                    <a href="{persona["github"]}"><img src="data:image/png;base64,{github_logo}" alt="GitHub" width="40"/></a>
+                </div>
+                ''', 
+                unsafe_allow_html=True
+            )
+
+# Definir otras páginas
 def dashboard_page():
     st.title("Dashboard")
     st.write("Aquí puedes agregar el contenido de tu dashboard.")
@@ -58,6 +143,15 @@ def modelos_page():
 # Definir la navegación con botones en la parte superior
 st.markdown("""
     <style>
+    body {
+        background-color: #2e2e2e;
+        color: white;
+    }
+    .centered-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .top-nav {
         display: flex;
         justify-content: center;
@@ -97,4 +191,3 @@ elif page == "Dashboard":
     dashboard_page()
 elif page == "Modelos":
     modelos_page()
-
