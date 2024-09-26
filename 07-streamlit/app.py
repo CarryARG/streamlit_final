@@ -69,39 +69,46 @@ if page == "Home":
 
     personas = [
         {
-            "nombre": "Florencia Lascurain",
-            "profesion": "Project Manager & Data Scientist",
-            "github": "https://github.com/FlorLascu",
-            "linkedin": "https://www.linkedin.com/in/florencia-lascurain-1a890938/",
-            "imagen_link": "./07-streamlit/images/Flor.png"
+            "nombre": "Cristian Moreira",
+            "profesion": "Project Manager",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/cristian.jpeg"
         },
         {
-            "nombre": "Facundo Denis",
-            "profesion": "Machine Learning Engineer",
-            "github": "https://github.com/Facundo022",
-            "linkedin": "https://www.linkedin.com/in/facundo-nicolas-denis-60933b199/",
-            "imagen_link": "./07-streamlit/images/Facu.png"
+            "nombre": "Andres Aguirre",
+            "profesion": "Technical Project Manager - Data Analytics",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/andres.jpeg"
         },
         {
-            "nombre": "Cristhian Huanqui",
-            "profesion": "Machine Learning Engineer",
-            "github": "https://github.com/Kipros21",
-            "linkedin": "https://www.linkedin.com/in/cristhian-huanqui-tapia-35a653185/",
-            "imagen_link": "./07-streamlit/images/Cris.png"
+            "nombre": "Jeison Zapata",
+            "profesion": "Data Scientist - Data Analyst",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/jeison.jpeg"
         },
         {
-            "nombre": "Gabriel Rojas",
-            "profesion": "Data Analyst",
-            "github": "https://github.com/ga-romu",
-            "linkedin": "https://www.linkedin.com/in/g-a-ro-mu/",
-            "imagen_link": "./07-streamlit/images/Gabi.png"
+            "nombre": "Libardo Alarcon",
+            "profesion": "Data Scientist",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/libardo.jpeg"
         },
         {
-            "nombre": "Iván Parra",
+            "nombre": "Manuel Carruitero",
             "profesion": "Data Engineer",
-            "github": "https://github.com/Ivan2125",
-            "linkedin": "https://www.linkedin.com/in/ivan-parra-2501/",
-            "imagen_link": "./07-streamlit/images/Ivan.png"
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/manuel.jpeg"
+        }
+                {
+            "nombre": "Lucas Carranza",
+            "profesion": "Data Engineer",
+            "github": "https://github.com/",
+            "linkedin": "https://www.linkedin.com/",
+            "imagen_link": "./07-streamlit/images/lucas.jpeg"
         }
     ]
 
