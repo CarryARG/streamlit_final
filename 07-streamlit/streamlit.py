@@ -111,7 +111,6 @@ import gensim
 import scipy.linalg
 from gensim import corpora
 from gensim import models
-from numpy import triu
 from scipy.linalg import get_blas_funcs
 from sklearn.neighbors import NearestNeighbors
 from st_on_hover_tabs import on_hover_tabs
