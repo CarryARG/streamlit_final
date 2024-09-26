@@ -1,5 +1,3 @@
-base64
-json
 nltk
 numpy
 pandas
@@ -9,7 +7,5 @@ Pillow
 gensim
 scipy
 scikit-learn
-statistics
-st-on-hover-tabs
 streamlit-folium
 folium

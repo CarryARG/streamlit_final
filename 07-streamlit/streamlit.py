@@ -99,8 +99,7 @@ st.markdown("""
 
 
 
-import base64
-import json
+
 import nltk
 import numpy as np
 import pandas as pd
@@ -109,10 +108,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
 from gensim import corpora, models
-from gettext import gettext as _
 from scipy.linalg import triu
 from sklearn.neighbors import NearestNeighbors
-from statistics import mean
 from st_on_hover_tabs import on_hover_tabs
 from streamlit_folium import folium_static, st_folium
 
