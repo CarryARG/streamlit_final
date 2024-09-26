@@ -1,4 +1,7 @@
 import streamlit as st
+import base64
+import nltk
+from PIL import Image
 
 st.header("Bienvenido a la Página Principal")
 st.write("Este es el contenido de la pestaña Home.")

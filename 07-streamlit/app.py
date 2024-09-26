@@ -1,4 +1,7 @@
 import streamlit as st
+import base64
+import nltk
+from PIL import Image
 
 # Configurar la página
 st.set_page_config(
