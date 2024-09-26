@@ -124,7 +124,7 @@ for package in nltk_packages:
         nltk.download(package)
 
 with st.sidebar:
-                        tab1, tab2, tab3 = st.tabs(["Home", "Dashboard", "Modelos"], 
+                        tab1, tab2, tab3 = st.tabs(*["Home", "Dashboard", "Modelos"], 
                         iconName=['home', 'dashboard', 'search'], default_choice=0,
                         styles = {'navtab': {'background-color':'#2E3159',
                                                   'color': '#FFFFFF',
