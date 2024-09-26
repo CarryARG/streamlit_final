@@ -133,11 +133,13 @@ st.markdown("""
 # Sidebar
 with st.sidebar:
     st.title("Mi Aplicación")
-    
-# Crear las pestañas
-tab1, tab2, tab3 = st.tabs(["Home", "Dashboard", "Modelos"])
 
-# Contenido de cada pestaña
+# Create tabs with icons (replace classes with desired icons)
+tab1, tab2, tab3 = st.tabs(
+    ["Home <i class='fa fa-home'></i>", "Dashboard <i class='fa fa-chart-bar'></i>", "Modelos <i class='fa fa-search'></i>"]
+)
+
+# Content of each tab
 with tab1:
     st.header("Bienvenido a la Página Principal")
     st.write("Este es el contenido de la pestaña Home.")
