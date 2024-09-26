@@ -123,8 +123,6 @@ for package in nltk_packages:
     except LookupError:
         nltk.download(package)
 
-import streamlit as st
-
 # Include Font Awesome CSS (replace with your CDN link if needed)
 st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
