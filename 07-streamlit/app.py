@@ -17,17 +17,14 @@ st.title("Análisis de Sentimientos de Reviews de Walgreens")
 page = st.sidebar.selectbox("Selecciona una página:", ["Home", "Dashboard", "Modelos"])
 
 # Almacenamos el estado de la página seleccionada
-st.session_state.page = page
-
-# Al cambiar de página, forzamos la recarga
-if 'page' in st.session_state:
-    if st.session_state.page != page:
-        st.experimental_rerun()
+if 'page' not in st.session_state or st.session_state.page != page:
+    st.session_state.page = page
+    st.experimental_rerun()  # Reinicia la aplicación al cambiar de página
 
 # Cargamos la página correspondiente
-if page == "Home":
-    import home
-elif page == "Dashboard":
-    import dashboard
-elif page == "Modelos":
-    import modelos
+if st.session_state.page == "Home":
+    import home  # Importar la página de presentación
+elif st.session_state.page == "Dashboard":
+    import dashboard  # Importar la página de dashboard
+elif st.session_state.page == "Modelos":
+    import modelos  # Importar la página de modelos
