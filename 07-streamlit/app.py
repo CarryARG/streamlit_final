@@ -11,7 +11,7 @@ def get_image_b64(image_path):
         return None
 
 # Imagen de la empresa
-img1 = Image.open('/mnt/data/image.png')  # Cambié la ruta a la que subiste
+img1 = Image.open('./07-streamlit/images/arcope-logo.jpeg')  # Cambié la ruta a la que subiste
 st.image(img1, use_column_width=True)
 
 # Bienvenida
