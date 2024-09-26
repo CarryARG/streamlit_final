@@ -293,7 +293,7 @@ def modelos_page():
     st.write("Aquí puedes agregar el contenido relacionado con los modelos de machine learning.")
     # Agrega los elementos y modelos necesarios
 
-# CSS para botones personalizados y centrados
+# CSS para botones personalizados y centrados con borde
 st.markdown("""
     <style>
         /* Estilos de los botones */
@@ -304,13 +304,15 @@ st.markdown("""
             background-color: #FFB74D;  /* Ajusta según los colores que prefieras */
             color: #FFF;
             border-radius: 8px;
-            padding: 10px 20px;  /* Añadido padding para mejor apariencia */
-            margin: 0 10px;  /* Añadido margen entre botones */
-            transition: background-color 0.3s ease;
+            padding: 10px 20px;  /* Padding para mejorar apariencia */
+            margin: 0 15px;  /* Añadir margen entre botones */
+            border: 2px solid #E65100;  /* Borde naranja/rojizo */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         /* Efecto hover */
         .custom-btn:hover {
-            background-color: #FFA726;  /* Ajusta este color también */
+            background-color: #FFA726;
+            border-color: #FB8C00;  /* Cambia el color del borde en hover */
         }
         /* Centrar los botones */
         .centered-btns {
@@ -321,7 +323,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# HTML para los botones
+# HTML para los botones que ahora recargan la misma página
 st.markdown(f"""
     <div class="centered-btns">
         <a href="/?page=home" class="custom-btn">Home</a>
