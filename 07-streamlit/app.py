@@ -280,7 +280,9 @@ for idx, persona in enumerate(personas):
 
 # Definir la página Home
 def home_page():
-
+    st.title("Página de Inicio")
+    st.write("Bienvenido a la página de inicio del proyecto.")
+    st.write("Aquí puedes agregar una descripción general o enlaces a secciones relevantes del proyecto.")
 
 # Definir otras páginas
 def dashboard_page():
