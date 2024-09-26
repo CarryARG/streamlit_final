@@ -10,6 +10,22 @@ def get_image_b64(image_path):
     except FileNotFoundError:
         return None
 
+# Incluir Bootstrap desde CDN
+st.markdown("""
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+""", unsafe_allow_html=True)
+
+# Usar componentes de Bootstrap en HTML
+st.markdown("""
+    <div class="container">
+        <h1 class="display-4">Bienvenido a mi aplicación Streamlit</h1>
+        <p class="lead">Este es un ejemplo de cómo usar Bootstrap con Streamlit.</p>
+        <button class="btn btn-primary">Botón de Bootstrap</button>
+    </div>
+""", unsafe_allow_html=True)
+
 # Inicializar la variable de sesión para controlar la página actual
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
