@@ -128,29 +128,20 @@ import streamlit as st
 # Incluyendo Font Awesome con un CDN más confiable
 st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-...' crossorigin="anonymous">  
-<style>
-.st-tabs .st-tabs__tab {
-    /* Aquí puedes agregar estilos para las pestañas */
-    padding: 10px;
-    border-radius: 5px;
-}
 
-.fa {
-    /* Aquí puedes agregar estilos para los iconos */
-    font-size: 20px;
-    margin-right: 5px;
-}
-</style>
 """, unsafe_allow_html=True)
 
-import streamlit as st
+# Sidebar
+with st.sidebar:
+    st.title("Mi Aplicación")
 
-st.button("Home", type="primary", help="Ir a la página de inicio")
-
+# Crear las pestañas con iconos (utilizando componentes personalizados)
 def custom_icon_button(label, icon_class):
     st.markdown(f"<button class='custom-button'><i class='{icon_class}'></i> {label}</button>", unsafe_allow_html=True)
 
 custom_icon_button("Home", "fa fa-home")
+custom_icon_button("Dashboard", "fa fa-chart-bar")
+custom_icon_button("Modelos", "fa fa-search")
 
 # Sidebar
 with st.sidebar:
