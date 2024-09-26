@@ -53,14 +53,14 @@ personas = [
     },
     {
         "nombre": "Andres Aguirre",
-        "profesion": "Technical Project Manager - Data Analytics",
+        "profesion": "Technical Project Manager & Data Analytics",
         "github": "https://github.com/",
         "linkedin": "https://www.linkedin.com/",
         "imagen_link": "./07-streamlit/images/andres.jpeg"
     },
     {
         "nombre": "Jeison Zapata",
-        "profesion": "Data Scientist - Data Analyst",
+        "profesion": "Data Scientist & Data Analyst",
         "github": "https://github.com/",
         "linkedin": "https://www.linkedin.com/",
         "imagen_link": "./07-streamlit/images/jeison.jpeg"
@@ -94,7 +94,7 @@ for idx, persona in enumerate(personas):
     with columns[idx]:
         # Nombre y profesión centrados
         st.markdown(f'<h2 style="text-align: center; margin-bottom: 0px;">{persona["nombre"]}</h2>', unsafe_allow_html=True)
-        st.markdown(f'<h3 style="text-align: center; color: gray;">{persona["profesion"]}</h3>', unsafe_allow_html=True)
+        st.markdown(f'<h3 style="text-align: center; color: gray; margin-bottom: 10px;">{persona["profesion"]}</h3>', unsafe_allow_html=True)
         
         # Imagen del equipo
         persona_image = get_image_b64(persona["imagen_link"])
@@ -106,7 +106,7 @@ for idx, persona in enumerate(personas):
         github_logo = get_image_b64("./07-streamlit/images/github-mark-white.png")
         st.markdown(
             f'''
-            <div style="display: flex; justify-content: center; margin-top: 100px;">
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
                 <a href="{persona["linkedin"]}"><img src="data:image/png;base64,{linkedin_logo}" alt="LinkedIn" width="30" style="margin-right: 10px;"/></a>
                 <a href="{persona["github"]}"><img src="data:image/png;base64,{github_logo}" alt="GitHub" width="30"/></a>
             </div>
