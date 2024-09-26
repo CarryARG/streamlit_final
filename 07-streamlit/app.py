@@ -34,7 +34,7 @@ def home_page():
     # Convertir la imagen a base64
     with open("./07-streamlit/images/arcope-logo.jpeg", "rb") as img_file:
         b64_1 = base64.b64encode(img_file.read()).decode()
-    
+
     # Mostrar la imagen del logo centrada
     st.markdown(f'''
         <div class="centered-img" style="display: flex; justify-content: center; margin-top: 20px;">
@@ -140,35 +140,36 @@ def modelos_page():
     st.write("Aquí puedes agregar el contenido relacionado con los modelos de machine learning.")
     # Agrega los elementos y modelos necesarios
 
-# Definir la navegación con botones en la parte superior
+# CSS para botones personalizados y centrados
 st.markdown("""
     <style>
-    body {
-        background-color: #2e2e2e;
-        color: white;
-    }
-    .centered-img {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .top-nav {
-        display: flex;
-        justify-content: center;
-        background-color: #2e2e2e;
-        padding: 10px;
-    }
-    .top-nav button {
-        margin: 0 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-    .top-nav button:hover {
-        background-color: #45a049;
-    }
+        /* Estilos de los botones */
+        .custom-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #FFB74D;  /* Puedes reemplazar estos colores con los colores extraídos */
+            color: #FFF;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efecto hover */
+        .custom-btn:hover {
+            background-color: #FFA726;  /* Ajusta este color también */
+        }
+
+        /* Centrar los botones */
+        .centered-btns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
     </style>
 """, unsafe_allow_html=True)
 
