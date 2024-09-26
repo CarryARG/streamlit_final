@@ -125,34 +125,29 @@ for package in nltk_packages:
 
 import streamlit as st
 
-# Incluyendo Font Awesome con un CDN más confiable
+# Incluyendo Font Awesome with a CDN
 st.markdown("""
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-...' crossorigin="anonymous">  
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-...' crossorigin="anonymous">
 """, unsafe_allow_html=True)
 
 # Sidebar
 with st.sidebar:
     st.title("Mi Aplicación")
 
-# Crear las pestañas con iconos (utilizando componentes personalizados)
-def custom_icon_button(label, icon_class):
-    st.markdown(f"<button class='custom-button'><i class='{icon_class}'></i> {label}</button>", unsafe_allow_html=True)
+# Custom component approach (commented out for now)
+# def custom_icon_button(label, icon_class):
+#     st.markdown(f"<button class='custom-button'><i class='{icon_class}'></i> {label}</button>", unsafe_allow_html=True)
+#
+# custom_icon_button("Home", "fa fa-home")
+# custom_icon_button("Dashboard", "fa fa-chart-bar")
+# custom_icon_button("Modelos", "fa fa-search")
 
-custom_icon_button("Home", "fa fa-home")
-custom_icon_button("Dashboard", "fa fa-chart-bar")
-custom_icon_button("Modelos", "fa fa-search")
-
-# Sidebar
-with st.sidebar:
-    st.title("Mi Aplicación")
-
-# Crear las pestañas con iconos (asegúrate de usar las clases correctas de Font Awesome)
+# Tabs with icons using st.tabs (currently active)
 tab1, tab2, tab3 = st.tabs(
     ["Home <i class='fa fa-home'></i>", "Dashboard <i class='fa fa-chart-bar'></i>", "Modelos <i class='fa fa-search'></i>"]
 )
 
-# Contenido de cada pestaña
+# Content of each tab
 with tab1:
     st.header("Bienvenido a la Página Principal")
     st.write("Este es el contenido de la pestaña Home.")
@@ -164,6 +159,10 @@ with tab2:
 with tab3:
     st.header("Modelos")
     st.write("Este es el contenido de la pestaña Modelos.")
+
+# Duplicate `with st.sidebar` block (remove)
+with st.sidebar:
+    st.title("Mi Aplicación")
     
 if tab1=="Home":
             # Open the image file
