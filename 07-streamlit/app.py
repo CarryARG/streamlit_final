@@ -32,14 +32,14 @@ page = st.sidebar.selectbox("Selecciona una página:", ["Home", "Dashboard", "Mo
 # Contenido de la pestaña Home
 if page == "Home":
     # Open the first image file
-    img1 = Image.open('images/g1-logo.png')        
+    img1 = Image.open('./07-streamlit/images/g1-logo.png')        
     
     # Convert the image to base64
-    with open("images/g1-logo.png", "rb") as img_file:
+    with open("./07-streamlit/images/g1-logo.png", "rb") as img_file:
         b64_1 = base64.b64encode(img_file.read()).decode()
     
     # Open the second image file
-    img2 = Image.open('images/walg-logo.png')  # Replace with the path to your second logo
+    img2 = Image.open('./07-streamlit/images/walg-logo.png')  # Replace with the path to your second logo
     
     # Convert the image to base64
     with open("images/walg-logo.png", "rb") as img_file:  # Replace with the path to your second logo
