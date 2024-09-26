@@ -278,6 +278,11 @@ for idx, persona in enumerate(personas):
             unsafe_allow_html=True
         )
 
+# Definir la página Home
+def home_page():
+
+
+# Definir otras páginas
 def dashboard_page():
     st.title("Dashboard")
     st.write("Aquí puedes agregar el contenido de tu dashboard.")
@@ -335,13 +340,3 @@ elif page == "modelos":
     modelos_page()
 else:
     home_page()
-
-
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style>
-
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
