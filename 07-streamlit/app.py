@@ -102,7 +102,7 @@ if page == "Home":
             "github": "https://github.com/",
             "linkedin": "https://www.linkedin.com/",
             "imagen_link": "./07-streamlit/images/manuel.jpeg"
-        }
+        },
                 {
             "nombre": "Lucas Carranza",
             "profesion": "Data Engineer",
