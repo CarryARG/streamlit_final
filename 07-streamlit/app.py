@@ -24,21 +24,44 @@ def go_dashboard():
 def go_modelos():
     st.session_state.page = "Modelos"
 
-# Crear botones para la navegación
-st.markdown("<h1 style='text-align: center;'>Aplicación</h1>", unsafe_allow_html=True)
-col1, col2, col3 = st.columns(3)
+# CSS para botones personalizados
+st.markdown("""
+    <style>
+        /* Estilos de los botones */
+        .button {
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #FFB74D;  /* Ajusta según los colores que prefieras */
+            color: #FFF;
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin: 0 15px;
+            border: 2px solid #E65100;  /* Borde naranja/rojizo */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        /* Efecto hover */
+        .button:hover {
+            background-color: #FFA726;
+            border-color: #FB8C00;  /* Cambia el color del borde en hover */
+        }
+        /* Centrar los botones */
+        .centered-btns {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
-with col1:
-    if st.button("Home"):
-        go_home()
-
-with col2:
-    if st.button("Dashboard"):
-        go_dashboard()
-
-with col3:
-    if st.button("Modelos"):
-        go_modelos()
+# HTML para los botones
+st.markdown(f"""
+    <div class="centered-btns">
+        <button onclick="window.location.href='/?page=home'" class="button">Home</button>
+        <button onclick="window.location.href='/?page=dashboard'" class="button">Dashboard</button>
+        <button onclick="window.location.href='/?page=modelos'" class="button">Modelos</button>
+    </div>
+""", unsafe_allow_html=True)
 
 # Lógica de navegación entre páginas basada en el estado
 if st.session_state.page == "Home":
@@ -317,45 +340,3 @@ elif st.session_state.page == "Modelos":
     st.title("Página Modelos")
     st.write("Contenido de los Modelos.")
 
-
-# CSS para botones personalizados y centrados con borde
-st.markdown("""
-    <style>
-        /* Estilos de los botones */
-        .button {
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            background-color: #FFB74D;  /* Ajusta según los colores que prefieras */
-            color: #FFF;
-            border-radius: 8px;
-            padding: 10px 20px;  /* Padding para mejorar apariencia */
-            margin: 0 15px;  /* Añadir margen entre botones */
-            border: 2px solid #E65100;  /* Borde naranja/rojizo */
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        /* Efecto hover */
-        .button:hover {
-            background-color: #FFA726;
-            border-color: #FB8C00;  /* Cambia el color del borde en hover */
-        }
-        /* Centrar los botones */
-        .button {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# HTML para los botones que ahora recargan la misma página
-st.markdown(f"""
-    <div class="centered-btns">
-        <a href="/?page=home" class="button">Home</a>
-        <a href="/?page=dashboard" class="button">Dashboard</a>
-        <a href="/?page=modelos" class="button">Modelos</a>
-    </div>
-""", unsafe_allow_html=True)
-
-# Obtener la página seleccionada
-page = st.experimental_get_query_params().get("page", ["home"])[0]
