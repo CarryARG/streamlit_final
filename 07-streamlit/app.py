@@ -10,9 +10,10 @@ def get_image_b64(image_path):
     except FileNotFoundError:
         return None
 
-# Imagen de la empresa
+# Imagen de la empresa con tamaño ajustado
 img1 = Image.open('./07-streamlit/images/arcope-logo.jpeg')  # Cambié la ruta a la que subiste
-st.image(img1, use_column_width=True)
+st.image(img1, use_column_width=False, width=300)  # Ajusta el ancho según lo necesario
+
 
 # Bienvenida
 st.header("Bienvenidos ⭐", divider='rainbow')
