@@ -35,7 +35,7 @@ if page == "Home":
     img1 = Image.open('./07-streamlit/images/arcope-logo.jpeg')        
     
     # Convert the image to base64
-    with open("./07-streamlit/images/g1-logo.png", "rb") as img_file:
+    with open("./07-streamlit/images/arcope-logo.jpeg", "rb") as img_file:
         b64_1 = base64.b64encode(img_file.read()).decode()
     
     # Open the second image file
