@@ -13,9 +13,6 @@ def get_image_b64(image_path):
 # Establecer la aplicación en modo wide
 st.set_page_config(layout="wide")
 
-# Resto de tu aplicación
-st.title("Mi Aplicación en Modo Wide")
-
 # Incluir Bootstrap desde CDN
 st.markdown("""
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
