@@ -108,6 +108,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from PIL import Image
 from sklearn.neighbors import NearestNeighbors
+from st_on_hover_tabs import on_hover_tabs
 from streamlit_folium import folium_static, st_folium
 
 # Organizar las importaciones
