@@ -31,37 +31,40 @@ page = st.sidebar.selectbox("Selecciona una página:", ["Home", "Dashboard", "Mo
 
 # Contenido de la pestaña Home
 if page == "Home":
-    st.header("Bienvenido a la Página Principal")
-    st.write("Este es el contenido de la pestaña Home.")
+    # Open the first image file
+    img1 = Image.open('images/g1-logo.png')        
     
-    # Mostrar imágenes
-    img1_b64 = get_image_b64('./07-streamlit/images/g1-logo.png')
-    img2_b64 = get_image_b64('./07-streamlit/images/walg-logo.png')
+    # Convert the image to base64
+    with open("images/g1-logo.png", "rb") as img_file:
+        b64_1 = base64.b64encode(img_file.read()).decode()
     
-    if img1_b64 and img2_b64:
-        st.markdown(f'''
-            <div style="display: flex; justify-content: center;">
-                <img src="data:image/png;base64,{img1_b64}" style="margin-right: 10px; width: 300px; height: 300px;" />
-                <img src="data:image/png;base64,{img2_b64}" style="margin-left: 100px; width: 600px; height: 200px;" />
-            </div>
-        ''', unsafe_allow_html=True)
-
+    # Open the second image file
+    img2 = Image.open('images/walg-logo.png')  # Replace with the path to your second logo
+    
+    # Convert the image to base64
+    with open("images/walg-logo.png", "rb") as img_file:  # Replace with the path to your second logo
+        b64_2 = base64.b64encode(img_file.read()).decode()
+    
+    # Display the images
+    # Display the images
+    st.markdown(f'<div style="display: flex; justify-content: center; align-items: center;"><img src="data:image/png;base64,{b64_1}" style="margin-right: 10px; width: 300px; height: 300px;" /><img src="data:image/png;base64,{b64_2}" style="margin-left: 100px; width: 600px; height: 200px;" /></div>', unsafe_allow_html=True)
+    
+    
+    st.header("Bienvenidos ⭐", divider='rainbow')
+    
     intro = """
-    Hola, en esta plataforma podrás gestionar y administrar de manera útil y práctica las opiniones de los clientes. Esta herramienta servirá como punto central para detectar oportunidades de negocio y mejorar procesos en todos los niveles, desde las tiendas locales hasta los directivos a nivel global.
-    """
-    st.markdown(intro, unsafe_allow_html=True)
-
-    # Lista de funciones
-    funciones = [
-        "➡️ Analizar las reseñas de Walgreens en Google y Yelp.",
-        "➡️ Ver estadísticas sobre las reseñas.",
-        "➡️ Explorar las reseñas en detalle.",
-        "➡️ Dashboard de control para el monitoreo del negocio."
-    ]
-    
-    for funcion in funciones:
-        st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{funcion}</h3>', unsafe_allow_html=True)
-
+    Hola, en esta plataforma podrás gestionar y administrar de manera útil y práctica las opiniones de los clientes. Esta herramienta servirá como punto central para detectar oportunidades de negocio y mejorar procesos en todos los niveles, desde las tiendas locales hasta los directivos a nivel global."""           
+                
+    a ="➡️ Analizar las reseñas de Walgreens en Google y Yelp, y obtener una visión general de los sentimientos expresados en ellas."
+    b = "➡️ Ver estadísticas sobre las reseñas, como la distribución de los sentimientos y las palabras más comunes."
+    c = "➡️ Explorar las reseñas en detalle, con la capacidad de filtrar por sentimiento y buscar palabras clave."
+    d = "➡️ Dashboard de control que permite una visualización que facilita el monitoreo del negocio basados en las plataformas Google y Yelp."
+                
+    st.markdown(f'<h3 style="text-align: left;">{intro}</h3>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{a}</h3>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{b}</h3>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{c}</h3>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{d}</h3>', unsafe_allow_html=True)
     st.divider()
 
     # Información del equipo
