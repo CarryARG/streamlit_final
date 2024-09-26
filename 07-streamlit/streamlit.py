@@ -130,42 +130,25 @@ st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 """, unsafe_allow_html=True)
 
+# Sidebar
 with st.sidebar:
-    # Use only labels for st.tabs (no iconName argument)
-    tab1, tab2, tab3 = st.tabs("Home", "Dashboard", "Modelos")
+    st.title("Mi Aplicación")
+    
+# Crear las pestañas
+tab1, tab2, tab3 = st.tabs(["Home", "Dashboard", "Modelos"])
 
-    # Create custom HTML elements with icons
-    st.markdown(
-        """
-        <div style="display: flex; align-items: center;">
-            <span style="margin-right: 10px;">
-                <i class="fa fa-home"></i>
-            </span>
-            Home
-        </div>
-        <div style="display: flex; align-items: center;">
-            <span style="margin-right: 10px;">
-                <i class="fa fa-chart-bar"></i>
-            </span>
-            Dashboard
-        </div>
-        <div style="display: flex; align-items: center;">
-            <span style="margin-right: 10px;">
-                <i class="fa fa-search"></i>
-            </span>
-            Modelos
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+# Contenido de cada pestaña
+with tab1:
+    st.header("Bienvenido a la Página Principal")
+    st.write("Este es el contenido de la pestaña Home.")
 
-    # Content for each tab
-    with tab1:
-        st.write("Home tab content")
-    with tab2:
-        st.write("Dashboard tab content")
-    with tab3:
-        st.write("Modelos tab content")
+with tab2:
+    st.header("Panel de Control")
+    st.write("Este es el contenido de la pestaña Dashboard.")
+
+with tab3:
+    st.header("Modelos")
+    st.write("Este es el contenido de la pestaña Modelos.")
     
 if tab1=="Home":
             # Open the image file
