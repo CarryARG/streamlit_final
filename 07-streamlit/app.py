@@ -34,7 +34,7 @@ def go_dashboard():
 def go_modelos():
     st.session_state.page = "Modelos"
 
-# CSS para personalizar los botones del navbar y ocultar elementos no deseados
+# CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown("""
     <style>
         /* Ocultar el menú de hamburguesa, el botón de compartir y el botón de editar */
@@ -69,11 +69,21 @@ st.markdown("""
             display: flex;
             justify-content: space-around;
             width: 100%; /* Ocupa todo el ancho de la pantalla */
+            margin: 0; /* Eliminar margen superior */
+            position: fixed; /* Fijar el navbar en la parte superior */
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Asegurar que quede encima de otros elementos */
         }
 
         /* Eliminar el padding alrededor de la aplicación */
         .css-18e3th9 {
             padding: 0;
+        }
+
+        /* Ajustar margen superior del contenido para que no quede detrás del navbar */
+        .main-content {
+            margin-top: 80px;  /* Ajusta según la altura del navbar */
         }
 
     </style>
@@ -87,6 +97,9 @@ st.markdown(f"""
         <a href="/?page=modelos" class="nav-item">Modelos</a>
     </nav>
 """, unsafe_allow_html=True)
+
+# Espacio para evitar que el contenido quede detrás del navbar
+st.markdown('<div class="main-content"></div>', unsafe_allow_html=True)
 
 # Lógica de navegación entre páginas basada en el estado
 if st.session_state.page == "Home":
