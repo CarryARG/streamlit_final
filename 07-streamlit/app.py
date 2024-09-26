@@ -34,7 +34,7 @@ def home_page():
     # Convertir la imagen a base64
     with open("./07-streamlit/images/arcope-logo.jpeg", "rb") as img_file:
         b64_1 = base64.b64encode(img_file.read()).decode()
-
+    
     # Mostrar la imagen del logo centrada
     st.markdown(f'''
         <div class="centered-img" style="display: flex; justify-content: center; margin-top: 20px;">
@@ -172,22 +172,23 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Botones de navegación
-st.markdown("""
-    <div class="top-nav">
-        <button onclick="window.location.href = '?page=Home';">Home</button>
-        <button onclick="window.location.href = '?page=Dashboard';">Dashboard</button>
-        <button onclick="window.location.href = '?page=Modelos';">Modelos</button>
+# HTML para los botones
+st.markdown(f"""
+    <div class="centered-btns">
+        <a href="/?page=home" class="custom-btn">Home</a>
+        <a href="/?page=dashboard" class="custom-btn">Dashboard</a>
+        <a href="/?page=modelos" class="custom-btn">Modelos</a>
     </div>
 """, unsafe_allow_html=True)
 
-# Cambiar la página según el parámetro de URL
+# Lógica de navegación
 query_params = st.experimental_get_query_params()
-page = query_params.get("page", ["Home"])[0]
+page = query_params.get("page", ["home"])[0]
 
-if page == "Home":
-    home_page()
-elif page == "Dashboard":
-    dashboard_page()
-elif page == "Modelos":
-    modelos_page()
+# Muestra la página correspondiente
+if page == "home":
+    st.write("Estás en Home")
+elif page == "dashboard":
+    st.write("Estás en el Dashboard")
+elif page == "modelos":
+    st.write("Estás en Modelos")
