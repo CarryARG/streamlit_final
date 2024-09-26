@@ -90,16 +90,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-
-
-
-
-
-
-
-
-
 import nltk
 import numpy as np
 import pandas as pd
@@ -122,8 +112,6 @@ for package in nltk_packages:
         nltk.data.find(f'tokenizers/{package}')
     except LookupError:
         nltk.download(package)
-
-import streamlit as st
 
 # Incluyendo Font Awesome with a CDN
 st.markdown("""
@@ -160,9 +148,6 @@ with tab3:
     st.header("Modelos")
     st.write("Este es el contenido de la pestaña Modelos.")
 
-# Duplicate `with st.sidebar` block (remove)
-with st.sidebar:
-    st.title("Mi Aplicación")
     
 if tab1=="Home":
             # Open the image file
