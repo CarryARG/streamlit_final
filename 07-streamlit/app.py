@@ -50,6 +50,7 @@ st.markdown("""
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            background-color: #000000;
         }
     </style>
 """, unsafe_allow_html=True)
