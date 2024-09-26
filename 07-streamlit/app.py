@@ -12,8 +12,11 @@ def get_image_b64(image_path):
 
 # Imagen de la empresa con tamaño ajustado
 img1 = Image.open('./07-streamlit/images/arcope-logo.jpeg')  # Cambié la ruta a la que subiste
-st.image(img1, use_column_width=False, width=300)  # Ajusta el ancho según lo necesario
-
+# Usa un contenedor HTML para centrar la imagen
+st.markdown(
+    f"<div style='text-align: center;'><img src='data:image/jpeg;base64,{get_image_b64('./07-streamlit/images/arcope-logo.jpeg')}' width='300'/></div>",
+    unsafe_allow_html=True
+)
 
 # Bienvenida
 st.header("Bienvenidos ⭐", divider='rainbow')
