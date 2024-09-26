@@ -39,7 +39,6 @@ st.markdown("""
             margin: 0 15px;
             border: 2px solid #E65100;  /* Borde naranja/rojizo */
             transition: background-color 0.3s ease, border-color 0.3s ease;
-            justify-content: space-around;
         }
         /* Efecto hover */
         .button:hover {
@@ -57,7 +56,7 @@ st.markdown("""
 
 # HTML para los botones
 st.markdown(f"""
-    <div class="centered-btns">
+    <div class="centered-btns d-flex justify-content-around">
         <button onclick="window.location.href='/?page=home'" class="button">Home</button>
         <button onclick="window.location.href='/?page=dashboard'" class="button">Dashboard</button>
         <button onclick="window.location.href='/?page=modelos'" class="button">Modelos</button>
