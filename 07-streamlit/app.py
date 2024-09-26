@@ -14,9 +14,15 @@ def get_image_b64(image_path):
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
 
-# Función para cambiar de página
-def navigate(page_name):
-    st.session_state['page'] = page_name
+# Funciones para cambiar de página
+def go_home():
+    st.session_state.page = "Home"
+
+def go_dashboard():
+    st.session_state.page = "Dashboard"
+
+def go_modelos():
+    st.session_state.page = "Modelos"
 
 # CSS para botones personalizados
 st.markdown("""
@@ -57,9 +63,8 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-
-# Navegación en base a session_state
-if st.session_state['page'] == 'home':
+# Lógica de navegación entre páginas basada en el estado
+if st.session_state.page == "Home":
     # Imagen de la empresa con tamaño ajustado
     img1 = Image.open('./07-streamlit/images/arcope-logo.jpeg')  # Cambié la ruta a la que subiste
     # Usa un contenedor HTML para centrar la imagen
@@ -328,7 +333,9 @@ if st.session_state['page'] == 'home':
                 unsafe_allow_html=True
             )
 
-elif st.session_state['page'] == 'dashboard':
-    st.write("# Aquí está tu Dashboard")
-elif st.session_state['page'] == 'modelos':
-    st.write("# Sección de Modelos")
+elif st.session_state.page == "Dashboard":
+    st.title("Página Dashboard")
+    st.write("Contenido del Dashboard.")
+elif st.session_state.page == "Modelos":
+    st.title("Página Modelos")
+    st.write("Contenido de los Modelos.")
