@@ -34,34 +34,48 @@ def go_dashboard():
 def go_modelos():
     st.session_state.page = "Modelos"
 
-# CSS para personalizar los botones del navbar
+# CSS para personalizar los botones del navbar y ocultar elementos no deseados
 st.markdown("""
     <style>
+        /* Ocultar el menú de hamburguesa, el botón de compartir y el botón de editar */
+        #MainMenu, header, footer {
+            visibility: hidden;
+        }
+
         /* Estilos de los botones en el navbar */
         .nav-item {
             font-weight: bold;
             text-align: center;
             text-decoration: none;
-            background-color: #FFB74D;  /* Ajusta según los colores que prefieras */
+            background-color: #FFB74D;
             color: #FFF !important;
             border-radius: 8px;
             padding: 10px 20px;
             margin: 0 15px;
-            border: 2px solid #E65100;  /* Borde naranja/rojizo */
+            border: 2px solid #E65100;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
+
         /* Efecto hover en los botones del navbar */
         .nav-item:hover {
             background-color: #FFA726;
-            border-color: #FB8C00;  /* Cambia el color del borde en hover */
+            border-color: #FB8C00;
         }
+
         /* Estilos para centrar y justificar los elementos del navbar */
         .navbar-custom {
-            background-color: #000000; /* Color de fondo del navbar */
+            background-color: #000000;
             padding: 20px;
             display: flex;
-            justify-content: space-around; /* Justificar los elementos */
+            justify-content: space-around;
+            width: 100%; /* Ocupa todo el ancho de la pantalla */
         }
+
+        /* Eliminar el padding alrededor de la aplicación */
+        .css-18e3th9 {
+            padding: 0;
+        }
+
     </style>
 """, unsafe_allow_html=True)
 
