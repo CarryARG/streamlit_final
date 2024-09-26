@@ -277,3 +277,61 @@ for idx, persona in enumerate(personas):
             ''', 
             unsafe_allow_html=True
         )
+
+def dashboard_page():
+    st.title("Dashboard")
+    st.write("Aquí puedes agregar el contenido de tu dashboard.")
+    # Agrega gráficos, estadísticas y otros elementos necesarios
+
+def modelos_page():
+    st.title("Modelos")
+    st.write("Aquí puedes agregar el contenido relacionado con los modelos de machine learning.")
+    # Agrega los elementos y modelos necesarios
+
+# CSS para botones personalizados y centrados
+st.markdown("""
+    <style>
+        /* Estilos de los botones */
+        .custom-btn {
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #FFB74D;  /* Ajusta según los colores que prefieras */
+            color: #FFF;
+            border-radius: 8px;
+            padding: 10px 20px;  /* Añadido padding para mejor apariencia */
+            margin: 0 10px;  /* Añadido margen entre botones */
+            transition: background-color 0.3s ease;
+        }
+        /* Efecto hover */
+        .custom-btn:hover {
+            background-color: #FFA726;  /* Ajusta este color también */
+        }
+        /* Centrar los botones */
+        .centered-btns {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# HTML para los botones
+st.markdown(f"""
+    <div class="centered-btns">
+        <a href="/?page=home" class="custom-btn">Home</a>
+        <a href="/?page=dashboard" class="custom-btn">Dashboard</a>
+        <a href="/?page=modelos" class="custom-btn">Modelos</a>
+    </div>
+""", unsafe_allow_html=True)
+
+# Obtener la página seleccionada
+page = st.experimental_get_query_params().get("page", ["home"])[0]
+
+# Lógica para mostrar la página correspondiente
+if page == "dashboard":
+    dashboard_page()
+elif page == "modelos":
+    modelos_page()
+else:
+    home_page()
