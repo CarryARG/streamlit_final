@@ -42,7 +42,7 @@ if page == "Home":
     img2 = Image.open('./07-streamlit/images/walg-logo.png')  # Replace with the path to your second logo
     
     # Convert the image to base64
-    with open("images/walg-logo.png", "rb") as img_file:  # Replace with the path to your second logo
+    with open("./07-streamlit/images/walg-logo.png", "rb") as img_file:  # Replace with the path to your second logo
         b64_2 = base64.b64encode(img_file.read()).decode()
     
     # Display the images
