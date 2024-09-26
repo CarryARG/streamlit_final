@@ -125,21 +125,22 @@ for package in nltk_packages:
 
 import streamlit as st
 
-# Include Font Awesome CSS (replace with your CDN link if needed)
+# Incluyendo Font Awesome con un CDN más confiable
 st.markdown("""
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-...' crossorigin="anonymous">  
+
 """, unsafe_allow_html=True)
 
 # Sidebar
 with st.sidebar:
     st.title("Mi Aplicación")
 
-# Create tabs with icons (replace classes with desired icons)
+# Crear las pestañas con iconos (asegúrate de usar las clases correctas de Font Awesome)
 tab1, tab2, tab3 = st.tabs(
     ["Home <i class='fa fa-home'></i>", "Dashboard <i class='fa fa-chart-bar'></i>", "Modelos <i class='fa fa-search'></i>"]
 )
 
-# Content of each tab
+# Contenido de cada pestaña
 with tab1:
     st.header("Bienvenido a la Página Principal")
     st.write("Este es el contenido de la pestaña Home.")
