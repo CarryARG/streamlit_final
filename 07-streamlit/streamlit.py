@@ -109,6 +109,9 @@ import streamlit.components.v1 as components
 from PIL import Image
 from sklearn.neighbors import NearestNeighbors
 from streamlit_folium import folium_static, st_folium
+import library_name
+
+
 
 # Organizar las importaciones
 import folium
@@ -140,7 +143,7 @@ for package in nltk_packages:
 
 
 with st.sidebar:
-    tabs = on_hover_tabs(tabName=['Home', 'Dashboard', "Modelos"], 
+    tabs = library_name.on_hover_tabs(tabName=['Home', 'Dashboard', "Modelos"], 
                          iconName=['home', 'dashboard', 'search'], default_choice=0,
                          styles = {'navtab': {'background-color':'#2E3159',
                                                   'color': '#FFFFFF',
