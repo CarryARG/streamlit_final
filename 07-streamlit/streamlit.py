@@ -124,23 +124,32 @@ for package in nltk_packages:
         nltk.download(package)
 
 with st.sidebar:
-    tab1, tab2, tab3 = st.tabs("Home", "Dashboard", "Modelos",
-    iconName=['home', 'dashboard', 'search'], default_choice=0,
-    styles = {'navtab': {'background-color':'#2E3159',
-                                'color': '#FFFFFF',
-                                'font-size': '18px',
-                                'transition': '.3s',
-                                'white-space': 'nowrap',
-                                'text-transform': 'uppercase'},
-                    'tabOptionsStyle': {':hover :hover': {'color': 'red',
-                                                    'cursor': 'pointer'}},
-                    'iconStyle':{'position':'fixed',
-                                'left':'7.5px',
-                                'text-align': 'left'},
-                    'tabStyle' : {'list-style-type': 'none',
-                                    'margin-bottom': '30px',
-                                    'padding-left': '30px'}},
-key="1")
+    tab1, tab2, tab3 = st.tabs("Home", "Dashboard", "Modelos")
+
+    # Create a custom HTML element to display the icons
+    st.markdown(
+        """
+        <div style="display: flex; align-items: center;">
+            <span style="margin-right: 10px;">
+                <i class="fa fa-home"></i>
+            </span>
+            Home
+        </div>
+        <div style="display: flex; align-items: center;">
+            <span style="margin-right: 10px;">
+                <i class="fa fa-chart-bar"></i>
+            </span>
+            Dashboard
+        </div>
+        <div style="display: flex; align-items: center;">
+            <span style="margin-right: 10px;">
+                <i class="fa fa-search"></i>
+            </span>
+            Modelos
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
 if tab1=="Home":
             # Open the image file
