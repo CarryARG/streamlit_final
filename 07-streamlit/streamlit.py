@@ -123,10 +123,18 @@ for package in nltk_packages:
     except LookupError:
         nltk.download(package)
 
+import streamlit as st
+
+# Include Font Awesome CSS (replace with your CDN link if needed)
+st.markdown("""
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+""", unsafe_allow_html=True)
+
 with st.sidebar:
+    # Use only labels for st.tabs (no iconName argument)
     tab1, tab2, tab3 = st.tabs("Home", "Dashboard", "Modelos")
 
-    # Create a custom HTML element to display the icons
+    # Create custom HTML elements with icons
     st.markdown(
         """
         <div style="display: flex; align-items: center;">
@@ -150,6 +158,14 @@ with st.sidebar:
         """,
         unsafe_allow_html=True
     )
+
+    # Content for each tab
+    with tab1:
+        st.write("Home tab content")
+    with tab2:
+        st.write("Dashboard tab content")
+    with tab3:
+        st.write("Modelos tab content")
     
 if tab1=="Home":
             # Open the image file
