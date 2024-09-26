@@ -169,3 +169,4 @@ if nav_options == "Home":
                 </div>
                 ''', unsafe_allow_html=True
             )
+
