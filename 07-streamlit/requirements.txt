@@ -7,4 +7,3 @@ Pillow
 gensim
 scipy
 scikit-learn
-st_on_hover_tabs
