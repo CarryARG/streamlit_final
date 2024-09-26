@@ -106,7 +106,7 @@ for idx, persona in enumerate(personas):
         github_logo = get_image_b64("./07-streamlit/images/github-mark-white.png")
         st.markdown(
             f'''
-            <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <div style="display: flex; justify-content: center; margin-top: 100px;">
                 <a href="{persona["linkedin"]}"><img src="data:image/png;base64,{linkedin_logo}" alt="LinkedIn" width="30" style="margin-right: 10px;"/></a>
                 <a href="{persona["github"]}"><img src="data:image/png;base64,{github_logo}" alt="GitHub" width="30"/></a>
             </div>
