@@ -39,6 +39,7 @@ st.markdown("""
             margin: 0 15px;
             border: 2px solid #E65100;  /* Borde naranja/rojizo */
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            justify-content: evenly;
         }
         /* Efecto hover */
         .button:hover {
