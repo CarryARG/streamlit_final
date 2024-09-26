@@ -20,15 +20,6 @@ st.markdown("""
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 """, unsafe_allow_html=True)
 
-# Usar componentes de Bootstrap en HTML
-st.markdown("""
-    <div class="container">
-        <h1 class="display-4">Bienvenido a mi aplicación Streamlit</h1>
-        <p class="lead">Este es un ejemplo de cómo usar Bootstrap con Streamlit.</p>
-        <button class="btn btn-primary">Botón de Bootstrap</button>
-    </div>
-""", unsafe_allow_html=True)
-
 # Inicializar la variable de sesión para controlar la página actual
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
@@ -43,44 +34,44 @@ def go_dashboard():
 def go_modelos():
     st.session_state.page = "Modelos"
 
-# CSS para botones personalizados
+# CSS para personalizar los botones del navbar
 st.markdown("""
     <style>
-        /* Estilos de los botones */
-        .button {
+        /* Estilos de los botones en el navbar */
+        .nav-item {
             font-weight: bold;
             text-align: center;
             text-decoration: none;
             background-color: #FFB74D;  /* Ajusta según los colores que prefieras */
-            color: #FFF;
+            color: #FFF !important;
             border-radius: 8px;
             padding: 10px 20px;
             margin: 0 15px;
             border: 2px solid #E65100;  /* Borde naranja/rojizo */
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
-        /* Efecto hover */
-        .button:hover {
+        /* Efecto hover en los botones del navbar */
+        .nav-item:hover {
             background-color: #FFA726;
             border-color: #FB8C00;  /* Cambia el color del borde en hover */
         }
-        /* Centrar los botones */
-        .centered-btns {
+        /* Estilos para centrar y justificar los elementos del navbar */
+        .navbar-custom {
+            background-color: #000000; /* Color de fondo del navbar */
+            padding: 20px;
             display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            background-color: #000000;
+            justify-content: space-around; /* Justificar los elementos */
         }
     </style>
 """, unsafe_allow_html=True)
 
-# HTML para los botones
+# HTML para el Navbar utilizando Bootstrap con los botones personalizados
 st.markdown(f"""
-    <div class="centered-btns d-flex justify-content-around">
-        <button onclick="window.location.href='/?page=home'" class="button">Home</button>
-        <button onclick="window.location.href='/?page=dashboard'" class="button">Dashboard</button>
-        <button onclick="window.location.href='/?page=modelos'" class="button">Modelos</button>
-    </div>
+    <nav class="navbar-custom">
+        <a href="/?page=home" class="nav-item">Home</a>
+        <a href="/?page=dashboard" class="nav-item">Dashboard</a>
+        <a href="/?page=modelos" class="nav-item">Modelos</a>
+    </nav>
 """, unsafe_allow_html=True)
 
 # Lógica de navegación entre páginas basada en el estado
