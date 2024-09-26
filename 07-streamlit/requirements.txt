@@ -7,5 +7,4 @@ Pillow
 gensim
 scipy
 scikit-learn
-streamlit-folium
-folium
+
