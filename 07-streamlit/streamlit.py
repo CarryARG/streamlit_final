@@ -124,28 +124,10 @@ for package in nltk_packages:
     except LookupError:
         nltk.download(package)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 with st.sidebar:
-    tabs = library_name.on_hover_tabs(tabName=['Home', 'Dashboard', "Modelos"], 
-                         iconName=['home', 'dashboard', 'search'], default_choice=0,
-                         styles = {'navtab': {'background-color':'#2E3159',
+                        tab1, tab2, tab3 = st.tabs(["Home", "Dashboard", "Modelos"], 
+                        iconName=['home', 'dashboard', 'search'], default_choice=0,
+                        styles = {'navtab': {'background-color':'#2E3159',
                                                   'color': '#FFFFFF',
                                                   'font-size': '18px',
                                                   'transition': '.3s',
@@ -159,8 +141,8 @@ with st.sidebar:
                                        'tabStyle' : {'list-style-type': 'none',
                                                      'margin-bottom': '30px',
                                                      'padding-left': '30px'}},
-                             key="1")
-if tabs=="Home":
+                        key="1")
+if tab1=="Home":
             # Open the image file
             
             # Open the first image file
@@ -265,7 +247,7 @@ if tabs=="Home":
                         unsafe_allow_html=True
                     )
 
-elif tabs=="Dashboard":
+elif tab2=="Dashboard":
 
         st.header("Dashboard \U0001F4CA", divider='rainbow',anchor=False)
         
@@ -311,7 +293,7 @@ elif tabs=="Dashboard":
         """
         components.html(embed_code, height=2000, width=1709,)
 
-elif tabs=="Modelos":
+elif tab3=="Modelos":
     
     st.header("Modelos de Machine Learning 🤖", divider='rainbow')
     st.title("Recomendación de tiendas Walgreens 🏪")
