@@ -20,6 +20,32 @@ st.markdown("""
             flex-shrink: unset !important;
         }
 
+        .custom-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration:  
+        none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;  
+
+        }    
+            
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);  
+
+        }
+        
         @media (hover:hover) and (min-width: 500px) and (max-width: 769px) {
             header[data-testid="stHeader"] {
                 display: none;
