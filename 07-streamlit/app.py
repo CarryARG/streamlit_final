@@ -70,10 +70,10 @@ st.markdown("""
             justify-content: space-around;
             width: 100%; /* Ocupa todo el ancho de la pantalla */
             margin: 0; /* Eliminar margen superior */
-            position: absolute; /* Fijar el navbar en la parte superior */
+            position: fixed; /* Fijar el navbar en la parte superior */
             top: 0;
             left: 0;
-            z-index: 1000; /* Asegurar que quede encima de otros elementos */
+            z-index: 1; /* Asegurar que quede encima de otros elementos */
         }
 
         /* Eliminar el padding alrededor de la aplicación */
