@@ -35,10 +35,7 @@ def go_modelos():
     st.session_state.page = "Modelos"
 
 
-# Assuming you've extracted colors from the logo:
-primary_color = "#FFB74D"  # Example primary color
-secondary_color = "#E65100"  # Example secondary color
-text_color = "#FFF"  # Example text color
+
 
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown("""
@@ -50,9 +47,9 @@ st.markdown("""
 
         /* Estilos de los botones en el navbar */
         .nav-item {
-            background-color: ${primary_color};
-            color: ${text_color};
-            border: 2px solid ${secondary_color};
+            background-color: FFB74D;
+            color: #FFF;
+            border: 2px solid #E65100;
           }
 
           /* Add more styles for other elements, e.g., headings, paragraphs */
