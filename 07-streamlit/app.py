@@ -1,5 +1,9 @@
 import streamlit as st
+import home  # Importar la página 'home.py'
 import base64
+
+# Configuración general de la página (debe ir antes de cualquier otro comando de Streamlit)
+st.set_page_config(page_title="ARCOPE App", layout="centered")
 
 # Función para cargar imágenes en base64
 def get_image_b64(image_path):
@@ -34,12 +38,6 @@ st.markdown("""
         .css-18e3th9 {padding: 0;} /* Eliminar padding sobrante */
     </style>
 """, unsafe_allow_html=True)
-
-import streamlit as st
-import home  # Importar la página 'home.py'
-
-# Configuración general de la página
-st.set_page_config(page_title="ARCOPE App", layout="centered")
 
 # Función para la navegación mediante URL de consulta (query parameter)
 def navigate_to(page):
