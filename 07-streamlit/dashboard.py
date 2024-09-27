@@ -1,6 +1,13 @@
 import streamlit as st
 
-st.header("Dashboard")
-st.write("Aquí puedes agregar el contenido de tu dashboard.")
-
-# Resto del contenido de la página
+def dashboard_page():
+    st.title("Dashboards")
+    
+    # Aquí puedes agregar el contenido exclusivo para la página de modelos
+    st.markdown("""
+    ## Bienvenido a la sección de Dashboards!
+    En esta sección podrás cargar, entrenar y evaluar modelos de Machine Learning.
+    """)
+    
+    # Ejemplo de espacio para futuros modelos
+    st.write("Aquí se mostrarán los modelos disponibles.")
