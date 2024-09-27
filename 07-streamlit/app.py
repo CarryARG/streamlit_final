@@ -1,7 +1,7 @@
 import streamlit as st
-from home import home_page  # Asegúrate de que home.py esté correctamente definido
-from dashboard import dashboard_page
-from modelos import modelos_page
+import home  # Asegúrate de que home.py esté correctamente definido
+import dashboard  # Importa el archivo dashboard.py
+import modelos  # Importa el archivo modelos_ml.py
 import base64
 from PIL import Image
 
@@ -101,7 +101,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # HTML para el Navbar utilizando Bootstrap con los botones personalizados
-st.markdown(f"""
+st.markdown("""
     <nav class="navbar-custom">
         <a href="#" class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
         <a href="#" class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
