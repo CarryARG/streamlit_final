@@ -44,8 +44,9 @@ def navigate_to(page):
     st.experimental_set_query_params(page=page)
 
 # Obtener la página actual de los parámetros de consulta (URL)
-query_params = st.experimental_get_query_params()  # Cambiado a experimental_get_query_params
-page = query_params.get("page", ["home"])[0]  # Obtén la página actual
+query_params = st.query_params  # Cambiar de experimental_get_query_params a query_params
+page = query_params.get("page", ["home"])[0]
+
 
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown("""
@@ -97,7 +98,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # HTML para el Navbar utilizando Bootstrap con los botones personalizados
-st.markdown(f"""
+st.markdown("""
     <nav class="navbar-custom">
         <a href="#" class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
         <a href="#" class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
