@@ -1,6 +1,9 @@
 import streamlit as st
-from PIL import Image
+import home  # Asegúrate de que home.py esté correctamente definido
+import dashboard  # Importa el archivo dashboard.py
+import modelos_ml  # Importa el archivo modelos_ml.py
 import base64
+from PIL import Image
 
 # Función para cargar imágenes en base64
 def get_image_b64(image_path):
