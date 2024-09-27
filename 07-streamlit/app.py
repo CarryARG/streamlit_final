@@ -91,8 +91,19 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
+# HTML para el Navbar utilizando Bootstrap con los botones personalizados
+st.markdown(f"""
+    <nav class="navbar-custom">
+        <a href="#" class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
+        <a href="#" class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
+        <a href="#" class="nav-item" onclick="window.location.href='/?page=modelos'">Modelos</a>
+    </nav>
+""", unsafe_allow_html=True)
+
 # Contenido basado en la página seleccionada
 if page == "home":
     home.home_page()  # Llama a la función home_page del archivo home.py
-elif page == "otra_pagina":
-    st.write("Aquí puedes cargar otra página o funcionalidad")
+elif page == "dashboard":
+    dashboard.dashboard_page()  # Llama a la función dashboard_page del archivo dashboard.py
+elif page == "modelos":
+    modelos_ml.modelos_page()  # Llama a la función modelos_ml_page del archivo modelos_ml.py
