@@ -34,6 +34,12 @@ def go_dashboard():
 def go_modelos():
     st.session_state.page = "Modelos"
 
+
+# Assuming you've extracted colors from the logo:
+primary_color = "#FFB74D"  # Example primary color
+secondary_color = "#E65100"  # Example secondary color
+text_color = "#FFF"  # Example text color
+
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown("""
     <style>
@@ -44,17 +50,16 @@ st.markdown("""
 
         /* Estilos de los botones en el navbar */
         .nav-item {
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            background-color: #FFB74D;
-            color: #FFF !important;
-            border-radius: 8px;
-            padding: 10px 20px;
-            margin: 0 15px;
-            border: 2px solid #E65100;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
+            background-color: ${primary_color};
+            color: ${text_color};
+            border: 2px solid ${secondary_color};
+          }
+
+          /* Add more styles for other elements, e.g., headings, paragraphs */
+          h1 {
+            color: ${primary_color};
+            font-family: 'Montserrat', sans-serif;
+          }
 
         /* Efecto hover en los botones del navbar */
         .nav-item:hover {
@@ -73,7 +78,7 @@ st.markdown("""
             position: fixed; /* Fijar el navbar en la parte superior */
             top: 0;
             left: 0;
-            z-index: 0; /* Asegurar que quede encima de otros elementos */
+            z-index: 1000; /* Asegurar que quede encima de otros elementos */
         }
 
         /* Eliminar el padding alrededor de la aplicación */
@@ -87,22 +92,6 @@ st.markdown("""
         }
 
     </style>
-""", unsafe_allow_html=True)
-
-# Agregar JavaScript para ocultar el navbar cuando se haga scroll hacia abajo y mostrarlo cuando se haga scroll hacia arriba
-st.markdown("""
-    <script>
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function() {
-            var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) {
-                document.querySelector('.navbar-custom').style.top = "0";
-            } else {
-                document.querySelector('.navbar-custom').style.top = "-100px";
-            }
-            prevScrollpos = currentScrollPos;
-        }
-    </script>
 """, unsafe_allow_html=True)
 
 # HTML para el Navbar utilizando Bootstrap con los botones personalizados
