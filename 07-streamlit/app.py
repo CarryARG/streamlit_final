@@ -39,10 +39,8 @@ def go_modelos():
 st.markdown('<nav class="navbar navbar-expand-lg navbar-light bg-light">', unsafe_allow_html=True)
 
 # Botón de menú para pantallas pequeñas
-st.markdown('<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">'
-             '<span class="navbar-toggler-icon"></span>'   
-
-             '</button>', unsafe_allow_html=True)
+st.markdown('<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">', unsafe_allow_html=True)
+st.markdown('<span class="navbar-toggler-icon">&nbsp;</span>', unsafe_allow_html=True)
 
 # Elementos del navbar
 st.markdown('<div class="collapse navbar-collapse" id="navbarNav">', unsafe_allow_html=True)
