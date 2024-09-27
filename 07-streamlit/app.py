@@ -1,7 +1,7 @@
 import streamlit as st
-from .07-streamlit.home import home_page  # Asegúrate de que home.py esté correctamente definido
-from .07-streamlit.dashboard import dashboard_page
-from .07-streamlit.modelos import modelos_page
+from home import home_page  # Asegúrate de que home.py esté correctamente definido
+from dashboard import dashboard_page
+from modelos import modelos_page
 import base64
 from PIL import Image
 
