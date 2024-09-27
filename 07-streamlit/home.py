@@ -1,5 +1,14 @@
 import streamlit as st
 from PIL import Image
+import base64
+
+# Función para cargar imágenes en base64
+def get_image_b64(image_path):
+    try:
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode()
+    except FileNotFoundError:
+        return None
 
 def home_page():
     # Aquí va el contenido que ya tienes en la página de home.
