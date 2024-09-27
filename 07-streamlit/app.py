@@ -25,6 +25,21 @@ st.markdown("""
  integrity="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
 """, unsafe_allow_html=True)
 
+# Agregar estilos personalizados usando markdown
+st.markdown("""
+<style>
+  .navbar-nav .nav-link {
+    color: #fff; /* Color del texto */
+    background-color: #F2A649; /* Color de fondo */
+    border-radius: 5px;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: #F25E3D; /* Color de fondo al pasar el mouse */
+  }
+</style>
+""", unsafe_allow_html=True)
+
 # Inicializar la variable de sesión para controlar la página actual
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
