@@ -41,7 +41,7 @@ def navigate_to(page):
     st.experimental_set_query_params(page=page)
 
 # Obtener la página actual de los parámetros de consulta (URL)
-query_params = st.query_params()
+query_params = st.query_params
 page = query_params.get("page", ["home"])[0]
 
 # Menú de navegación con Bootstrap
