@@ -101,7 +101,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # HTML para el Navbar utilizando Bootstrap con los botones personalizados
-st.markdown(f"""
+st.markdown("""
     <nav class="navbar-custom">
         <a href="#" class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
         <a href="#" class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
