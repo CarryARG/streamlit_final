@@ -47,21 +47,22 @@ st.markdown("""
 
         /* Estilos de los botones en el navbar */
         .nav-item {
-            background-color: FFB74D;
+            background-color: #F2A649;
             color: #FFF;
-            border: 2px solid #E65100;
+            padding: 10px 20px;
+            border-radius: 5px;
           }
 
           /* Add more styles for other elements, e.g., headings, paragraphs */
           h1 {
-            color: ${primary_color};
+            color: #FFF;
             font-family: 'Montserrat', sans-serif;
           }
 
         /* Efecto hover en los botones del navbar */
         .nav-item:hover {
-            background-color: #FFA726;
-            border-color: #FB8C00;
+            background-color: #F25E3D; /* Color más oscuro para el hover */
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
         }
 
         /* Estilos para centrar y justificar los elementos del navbar */
