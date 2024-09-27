@@ -41,7 +41,7 @@ def navigate_to(page):
     st.experimental_set_query_params(page=page)
 
 # Obtener la página actual de los parámetros de consulta (URL)
-query_params = st.experimental_get_query_params()
+query_params = st.query_params()
 page = query_params.get("page", ["home"])[0]
 
 # Menú de navegación con Bootstrap
@@ -86,8 +86,8 @@ st.markdown("""
         <a href="#" class="{}" onclick="window.location.href='/?page=otra_pagina'">Otra Página</a>
     </div>
     """.format(
-    "active" if page == "home" else "", 
-    "active" if page == "otra_pagina" else ""
+    home_active="active" if page == "home" else "", 
+    other_active="active" if page == "otra_pagina" else ""
 ), unsafe_allow_html=True)
 
 # Contenido basado en la página seleccionada
