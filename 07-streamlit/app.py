@@ -44,8 +44,8 @@ def navigate_to(page):
     st.experimental_set_query_params(page=page)
 
 # Obtener la página actual de los parámetros de consulta (URL)
-query_params = st.query_params
-page = query_params.get("page", ["home"])[0]
+query_params = st.experimental_get_query_params()  # Cambiado a experimental_get_query_params
+page = query_params.get("page", ["home"])[0]  # Obtén la página actual
 
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown("""
