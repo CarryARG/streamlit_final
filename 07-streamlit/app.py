@@ -35,7 +35,35 @@ def go_modelos():
     st.session_state.page = "Modelos"
 
 
+# Crear un contenedor para el navbar
+st.markdown('<nav class="navbar navbar-expand-lg navbar-light bg-light">', unsafe_allow_html=True)
 
+# Botón de menú para pantallas pequeñas
+st.markdown('<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">'
+             '<span class="navbar-toggler-icon"></span>'   
+
+             '</button>', unsafe_allow_html=True)
+
+# Elementos del navbar
+st.markdown('<div class="collapse navbar-collapse" id="navbarNav">', unsafe_allow_html=True)
+st.markdown('<ul class="navbar-nav">', unsafe_allow_html=True)
+
+# Botón 1
+st.markdown('<li class="nav-item">'
+             '<a class="nav-link" href="#">Inicio</a>'
+             '</li>', unsafe_allow_html=True)
+
+# Botón 2
+st.markdown('<li class="nav-item">'
+             '<a class="nav-link" href="#">Acerca de</a>'
+             '</li>', unsafe_allow_html=True)
+
+# Botón 3
+st.markdown('<li class="nav-item">'
+             '<a class="nav-link" href="#">Contacto</a>'
+             '</li>', unsafe_allow_html=True)
+
+st.markdown('</ul></div></nav>', unsafe_allow_html=True)
 
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown("""
@@ -51,12 +79,6 @@ st.markdown("""
             color: #FFF;
             padding: 10px 20px;
             border-radius: 5px;
-          }
-
-          /* Add more styles for other elements, e.g., headings, paragraphs */
-          h1 {
-            color: #FFF;
-            font-family: 'Montserrat', sans-serif;
           }
 
         /* Efecto hover en los botones del navbar */
