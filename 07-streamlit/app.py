@@ -1,6 +1,9 @@
 import streamlit as st
-import home  # Importar la página 'home.py'
+import home  # Asegúrate de que home.py esté correctamente definido
+import dashboard  # Importa el archivo dashboard.py
+import modelos_ml  # Importa el archivo modelos_ml.py
 import base64
+from PIL import Image
 
 # Configuración general de la página (debe ir antes de cualquier otro comando de Streamlit)
 st.set_page_config(page_title="ARCOPE App", layout="wide")
@@ -43,10 +46,6 @@ def navigate_to(page):
 # Obtener la página actual de los parámetros de consulta (URL)
 query_params = st.query_params
 page = query_params.get("page", ["home"])[0]
-
-# Asignar clases CSS condicionales
-home_active = "active" if page == "home" else ""
-other_active = "active" if page == "otra_pagina" else ""
 
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown("""
@@ -100,9 +99,9 @@ st.markdown("""
 # HTML para el Navbar utilizando Bootstrap con los botones personalizados
 st.markdown(f"""
     <nav class="navbar-custom">
-        <a href="/?page=home" class="nav-item" {'active' if page == 'home' else ''}">Home</a>
-        <a href="/?page=dashboard" class="nav-item" {'active' if page == 'dashboard' else ''}">Dashboard</a>
-        <a href="/?page=modelos" class="nav-item" {'active' if page == 'modelos' else ''}">Modelos ML</a>
+        <a href="#" class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
+        <a href="#" class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
+        <a href="#" class="nav-item" onclick="window.location.href='/?page=modelos'">Modelos</a>
     </nav>
 """, unsafe_allow_html=True)
 
@@ -112,4 +111,4 @@ if page == "home":
 elif page == "dashboard":
     dashboard.dashboard_page()  # Llama a la función dashboard_page del archivo dashboard.py
 elif page == "modelos":
-    modelos_ml.modelos_page()  # Llama a la función modelos_ml_page del archivo modelos_ml.py
+    modelos.modelos_page()  # Llama a la función modelos_ml_page del archivo modelos_ml.py
