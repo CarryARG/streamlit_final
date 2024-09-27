@@ -1,118 +1,212 @@
 import streamlit as st
-import home  # Asegúrate de que home.py esté correctamente definido
-import dashboard  # Importa el archivo dashboard.py
-import modelos  # Importa el archivo modelos_ml.py
 import base64
+import nltk
 from PIL import Image
 
-# Configuración general de la página (debe ir antes de cualquier otro comando de Streamlit)
-st.set_page_config(page_title="ARCOPE App", layout="wide")
+# Configurar la página
+st.set_page_config(
+    layout="wide",
+    page_title="Análisis de Sentimientos de Reviews de Walgreens",
+    page_icon="star"
+)
 
-# Función para cargar imágenes en base64
-def get_image_b64(image_path):
+# Inyectar el CSS personalizado
+st.markdown("""
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        section[data-testid='stSidebar'] {
+            background-color: #2E3159 !important;
+            flex-shrink: unset !important;
+        }
+        .custom-button {
+            background-color: #4CAF50; 
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;  
+        }    
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Descargar paquetes NLTK si no están presentes
+nltk_packages = ['punkt', 'wordnet']
+for package in nltk_packages:
     try:
-        with open(image_path, "rb") as image_file:
-            return base64.b64encode(image_file.read()).decode()
+        nltk.data.find(f'tokenizers/{package}')
+    except LookupError:
+        nltk.download(package)
+
+# Función para convertir imágenes a base64
+def get_image_b64(path):
+    try:
+        with open(path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode('utf-8')
     except FileNotFoundError:
         return None
 
-# Incluir Bootstrap CSS y JavaScript
-st.markdown("""
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+# Sidebar
+with st.sidebar:
+    st.title("Mi Aplicación")
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9P/ScQsAP7hUibX39j13EVY4pQ11VVn1+kpZ60" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-""", unsafe_allow_html=True)
+# Crear pestañas
+tab1, tab2, tab3 = st.tabs(["Home", "Dashboard", "Modelos"])
 
-# Ocultar los elementos no deseados del menú superior y el espaciado adicional
-st.markdown("""
-    <style>
-        #MainMenu {visibility: hidden;} /* Ocultar el menú de arriba a la derecha */
-        footer {visibility: hidden;} /* Ocultar el pie de página */
-        header {visibility: hidden;} /* Ocultar el header */
-        .css-18e3th9 {padding: 0;} /* Eliminar padding sobrante */
-    </style>
-""", unsafe_allow_html=True)
+# Contenido de la pestaña Home
+if tab1:
+    st.header("Bienvenido a la Página Principal")
+    st.write("Este es el contenido de la pestaña Home.")
+    
+    # Mostrar imágenes
+    img1_b64 = get_image_b64('./07-streamlit/images/g1-logo.png')
+    img2_b64 = get_image_b64('./07-streamlit/images/walg-logo.png')
+    
+    if img1_b64 and img2_b64:
+        st.markdown(f'''
+            <div style="display: flex; justify-content: center;">
+                <img src="data:image/png;base64,{img1_b64}" style="margin-right: 10px; width: 300px; height: 300px;" />
+                <img src="data:image/png;base64,{img2_b64}" style="margin-left: 100px; width: 600px; height: 200px;" />
+            </div>
+        ''', unsafe_allow_html=True)
 
-# Función para la navegación mediante URL de consulta (query parameter)
-def navigate_to(page):
-    st.experimental_set_query_params(page=page)
+    intro = """
+    Hola, en esta plataforma podrás gestionar y administrar de manera útil y práctica las opiniones de los clientes. Esta herramienta servirá como punto central para detectar oportunidades de negocio y mejorar procesos en todos los niveles, desde las tiendas locales hasta los directivos a nivel global.
+    """
+    st.markdown(intro, unsafe_allow_html=True)
 
+    # Lista de funciones
+    funciones = [
+        "➡️ Analizar las reseñas de Walgreens en Google y Yelp.",
+        "➡️ Ver estadísticas sobre las reseñas.",
+        "➡️ Explorar las reseñas en detalle.",
+        "➡️ Dashboard de control para el monitoreo del negocio."
+    ]
+    
+    for funcion in funciones:
+        st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{funcion}</h3>', unsafe_allow_html=True)
 
-# Obtener la página actual de los parámetros de consulta (URL)
-query_params = st.query_params  # Cambiar de experimental_get_query_params a query_params
-page = query_params.get("page", ["home"])[0]
+    st.divider()
 
-# Debugging: Imprimir la página actual
-st.write(f"Current page: {page}")
+    # Información del equipo
+    st.header("Desarrollado por ⚙️", divider='rainbow')
 
-# CSS para personalizar el navbar y eliminar los espacios sobrantes
-st.markdown("""
-    <style>
-        /* Ocultar el menú de hamburguesa, el botón de compartir y el botón de editar */
-        #MainMenu, header, footer {
-            visibility: hidden;
+    personas = [
+        {
+            "nombre": "Florencia Lascurain",
+            "profesion": "Project Manager & Data Scientist",
+            "github": "https://github.com/FlorLascu",
+            "linkedin": "https://www.linkedin.com/in/florencia-lascurain-1a890938/",
+            "imagen_link": "./07-streamlit/images/Flor.png"
+        },
+        {
+            "nombre": "Facundo Denis",
+            "profesion": "Machine Learning Engineer",
+            "github": "https://github.com/Facundo022",
+            "linkedin": "https://www.linkedin.com/in/facundo-nicolas-denis-60933b199/",
+            "imagen_link": "./07-streamlit/images/Facu.png"
+        },
+        {
+            "nombre": "Cristhian Huanqui",
+            "profesion": "Machine Learning Engineer",
+            "github": "https://github.com/Kipros21",
+            "linkedin": "https://www.linkedin.com/in/cristhian-huanqui-tapia-35a653185/",
+            "imagen_link": "./07-streamlit/images/Cris.png"
+        },
+        {
+            "nombre": "Gabriel Rojas",
+            "profesion": "Data Analyst",
+            "github": "https://github.com/ga-romu",
+            "linkedin": "https://www.linkedin.com/in/g-a-ro-mu/",
+            "imagen_link": "./07-streamlit/images/Gabi.png"
+        },
+        {
+            "nombre": "Iván Parra",
+            "profesion": "Data Engineer",
+            "github": "https://github.com/Ivan2125",
+            "linkedin": "https://www.linkedin.com/in/ivan-parra-2501/",
+            "imagen_link": "./07-streamlit/images/Ivan.png"
         }
+    ]
 
-        /* Estilos de los botones en el navbar */
-        .nav-item {
-            background-color: #F2A649;
-            color: #FFF;
-            padding: 10px 20px;
-            border-radius: 5px;
-          }
+    columns = st.columns(len(personas))
+    for idx, persona in enumerate(personas):
+        with columns[idx]:
+            st.markdown(f'<h2 style="text-align: center;">{persona["nombre"]}</h2>', unsafe_allow_html=True)
+            persona_image = get_image_b64(persona["imagen_link"])
+            if persona_image:
+                st.markdown(f'<div style="display: flex; justify-content: center;"><img src="data:image/png;base64,{persona_image}" width="200"/></div>', unsafe_allow_html=True)
+            st.markdown(f'<h3 style="text-align: center;">{persona["profesion"]}</h3>', unsafe_allow_html=True)
 
-        /* Efecto hover en los botones del navbar */
-        .nav-item:hover {
-            background-color: #F25E3D; /* Color más oscuro para el hover */
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-        }
+            # Logos de redes sociales
+            linkedin_logo = get_image_b64("./07-streamlit/images/LI-In-Bug.png")
+            github_logo = get_image_b64("./07-streamlit/images/github-mark-white.png")
+            st.markdown(
+                f'''
+                <div style="display: flex; justify-content: center;">
+                    <a href="{persona["linkedin"]}"><img src="data:image/png;base64,{linkedin_logo}" alt="LinkedIn" width="50"/></a>
+                    <a href="{persona["github"]}"><img src="data:image/png;base64,{github_logo}" alt="GitHub" width="40"/></a>
+                </div>
+                ''', 
+                unsafe_allow_html=True
+            )
 
-        /* Estilos para centrar y justificar los elementos del navbar */
-        .navbar-custom {
-            background-color: #000000;
-            padding: 20px;
-            display: flex;
-            justify-content: space-around;
-            width: 100%; /* Ocupa todo el ancho de la pantalla */
-            margin: 0; /* Eliminar margen superior */
-            position: fixed; /* Fijar el navbar en la parte superior */
-            top: 0;
-            left: 0;
-            z-index: 1000; /* Asegurar que quede encima de otros elementos */
-        }
+elif tab2 == "Dashboard":
+    st.header("Dashboard 📊", divider='rainbow', anchor=False)
+    
+    intro = "Hola,"
+    a = "➡️ Analizar las reseñas de Walgreens en Google y Yelp, y obtener una visión general de los sentimientos expresados en ellas."
+    
+    st.markdown(f'<h3 style="text-align: left;">{intro}</h3>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="text-align: left; font-size: 23px;">{a}</h3>', unsafe_allow_html=True)
+    
+    # Función para cargar y mostrar el gráfico de Tableau
+    def mostrar_tableau():
+        embed_code = """
+        <div style='display: flex; justify-content: center; width: 100%; margin: auto'>
+            <div class='tableauPlaceholder' id='viz1713209577914' style='position: relative; margin: auto'>
+                <noscript>
+                    <a href='#'><img alt='Principales competidores ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wa&#47;Walgreens-reviewsanalysisonGoogleYelp&#47;Tablero1&#47;1_rss.png' style='border: none' /></a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                    <param name='embed_code_version' value='3' /> 
+                    <param name='name' value='Walgreens-reviewsanalysisonGoogleYelp&#47;Tablero1' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wa&#47;Walgreens-reviewsanalysisonGoogleYelp&#47;Tablero1&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='es-ES' />
+                </object>
+            </div>
+        </div>
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1713209577914');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';}
+            else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';}
+            else { vizElement.style.width='100%';vizElement.style.height='977px';}                     
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+        """
+        components.html(embed_code, height=2000, width=1709)
 
-        /* Eliminar el padding alrededor de la aplicación */
-        .css-18e3th9 {
-            padding: 0;
-        }
-
-        /* Ajustar margen superior del contenido para que no quede detrás del navbar */
-        .main-content {
-            margin-top: 80px;  /* Ajusta según la altura del navbar */
-        }
-
-    </style>
-""", unsafe_allow_html=True)
-
-# HTML para el Navbar utilizando Bootstrap con los botones personalizados
-st.markdown("""
-    <nav class="navbar-custom">
-        <a href="#" class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
-        <a href="#" class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
-        <a href="#" class="nav-item" onclick="window.location.href='/?page=modelos'">Modelos</a>
-    </nav>
-""", unsafe_allow_html=True)
-
-# Contenido basado en la página seleccionada
-if page == "home":
-    home.home_page()  # Llama a la función home_page del archivo home.py
-elif page == "dashboard":
-    dashboard.dashboard_page()  # Llama a la función dashboard_page del archivo dashboard.py
-elif page == "modelos":
-    modelos.modelos_page()  # Llama a la función modelos_ml_page del archivo modelos_ml.py
+    mostrar_tableau()
