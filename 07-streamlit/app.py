@@ -49,6 +49,10 @@ def go_dashboard():
 def go_modelos():
     st.session_state.page = "Modelos"
 
+# Navegación entre páginas
+page = st.sidebar.radio("Navegación", ["Home", "Modelos"])
+
+
 # Crear el navbar con Bootstrap
 st.markdown("""
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -73,7 +77,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Dependiendo de la página seleccionada, mostrar contenido distinto
-if st.session_state.page == "Home":
+if page == "Home":
     import streamlit as st
     from PIL import Image
     import base64
@@ -158,9 +162,9 @@ if st.session_state.page == "Home":
                 unsafe_allow_html=True
             )
 
-elif st.session_state.page == "Dashboard":
-    st.title("Dashboard")
-    st.write("Aquí puedes mostrar tus gráficos de Plotly.")
-elif st.session_state.page == "Modelos":
-    st.title("Modelos")
-    st.write("Aquí puedes describir los modelos disponibles.")
+elif page == "Dashboard":
+    # Muestra la página de modelos
+    dashboard_page()
+elif page == "Modelos":
+    # Muestra la página de modelos
+    modelos_page()
