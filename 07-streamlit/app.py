@@ -70,7 +70,7 @@ st.markdown("""
             justify-content: space-around;
             width: 100%; /* Ocupa todo el ancho de la pantalla */
             margin: 0; /* Eliminar margen superior */
-            position: sticky; /* Fijar el navbar en la parte superior */
+            position: absolute; /* Fijar el navbar en la parte superior */
             top: 0;
             left: 0;
             z-index: 1000; /* Asegurar que quede encima de otros elementos */
