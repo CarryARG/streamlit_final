@@ -35,50 +35,68 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Inicializar la variable de sesión para la navegación entre páginas
-if 'page' not in st.session_state:
-    st.session_state.page = "Home"
+import streamlit as st
+import home  # Importar la página 'home.py'
 
-# Funciones para cambiar de página
-def go_home():
-    st.session_state.page = "Home"
+# Configuración general de la página
+st.set_page_config(page_title="ARCOPE App", layout="centered")
 
-def go_dashboard():
-    st.session_state.page = "Dashboard"
+# Función para la navegación mediante URL de consulta (query parameter)
+def navigate_to(page):
+    st.experimental_set_query_params(page=page)
 
-def go_modelos():
-    st.session_state.page = "Modelos"
+# Obtener la página actual de los parámetros de consulta (URL)
+query_params = st.experimental_get_query_params()
+page = query_params.get("page", ["home"])[0]
 
-# Crear el navbar con Bootstrap
+# Menú de navegación con Bootstrap
 st.markdown("""
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Mi Aplicación</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#" onclick="window.location.href='/?page=home';">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="window.location.href='/?page=dashboard';">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="window.location.href='/?page=modelos';">Modelos</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-""", unsafe_allow_html=True)
+    <style>
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    
+    .navbar a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+    
+    .content {
+        padding: 16px;
+        margin-top: 50px;
+    }
+    </style>
 
-# Dependiendo de la página seleccionada, mostrar contenido distinto
-if st.session_state.page == "Home":
-    st.title("Bienvenido a la página principal")
-    st.write("Aquí puedes agregar contenido sobre la página principal.")
-elif st.session_state.page == "Dashboard":
-    st.title("Dashboard")
-    st.write("Aquí puedes mostrar tus gráficos de Plotly.")
-elif st.session_state.page == "Modelos":
-    st.title("Modelos")
-    st.write("Aquí puedes describir los modelos disponibles.")
+    <div class="navbar">
+        <a href="#" class="{}" onclick="window.location.href='/?page=home'">Home</a>
+        <a href="#" class="{}" onclick="window.location.href='/?page=otra_pagina'">Otra Página</a>
+    </div>
+    """.format(
+    "active" if page == "home" else "", 
+    "active" if page == "otra_pagina" else ""
+), unsafe_allow_html=True)
+
+# Contenido basado en la página seleccionada
+if page == "home":
+    home.home_page()  # Llama a la función home_page del archivo home.py
+elif page == "otra_pagina":
+    st.write("Aquí puedes cargar otra página o funcionalidad")
