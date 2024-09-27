@@ -44,6 +44,10 @@ def navigate_to(page):
 query_params = st.query_params
 page = query_params.get("page", ["home"])[0]
 
+# Asignar clases CSS condicionales
+home_active = "active" if page == "home" else ""
+other_active = "active" if page == "otra_pagina" else ""
+
 # Menú de navegación con Bootstrap
 st.markdown("""
     <style>
