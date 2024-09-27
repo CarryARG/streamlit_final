@@ -89,10 +89,7 @@ st.markdown("""
         <a href="#" class="{}" onclick="window.location.href='/?page=home'">Home</a>
         <a href="#" class="{}" onclick="window.location.href='/?page=otra_pagina'">Otra Página</a>
     </div>
-    """.format(
-    home_active="active" if page == "home" else "", 
-    other_active="active" if page == "otra_pagina" else ""
-), unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
 # Contenido basado en la página seleccionada
 if page == "home":
