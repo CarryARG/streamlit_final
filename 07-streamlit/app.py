@@ -89,6 +89,22 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# Agregar JavaScript para ocultar el navbar cuando se haga scroll hacia abajo y mostrarlo cuando se haga scroll hacia arriba
+st.markdown("""
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.querySelector('.navbar-custom').style.top = "0";
+            } else {
+                document.querySelector('.navbar-custom').style.top = "-100px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+""", unsafe_allow_html=True)
+
 # HTML para el Navbar utilizando Bootstrap con los botones personalizados
 st.markdown(f"""
     <nav class="navbar-custom">
