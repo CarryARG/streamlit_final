@@ -73,7 +73,7 @@ st.markdown("""
             position: fixed; /* Fijar el navbar en la parte superior */
             top: 0;
             left: 0;
-            z-index: 1; /* Asegurar que quede encima de otros elementos */
+            z-index: 0; /* Asegurar que quede encima de otros elementos */
         }
 
         /* Eliminar el padding alrededor de la aplicación */
