@@ -47,15 +47,12 @@ def navigate_to(page):
 
 # Obtener la página actual desde los parámetros de consulta (URL) usando la versión experimental
 query_params = st.experimental_get_query_params()
-page = query_params.get("page", ["home"])[0]
+page = query_params.get("page", ["home"])[0]  # Esto recupera el valor de 'page' en la URL
+
 
 # Asignar clases CSS condicionales
 home_active = "active" if page == "home" else ""
 other_active = "active" if page == "otra_pagina" else ""
-
-# Obtener la página actual de los parámetros de consulta (URL)
-query_params = st.query_params
-page = query_params.get("page", ["home"])[0]
 
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown(""" 
