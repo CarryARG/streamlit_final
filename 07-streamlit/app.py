@@ -45,8 +45,8 @@ st.markdown("""
 def navigate_to(page):
     st.experimental_set_query_params(page=page)
 
-# Obtener la página actual de los parámetros de consulta (URL)
-query_params = st.query_params
+# Obtener la página actual desde los parámetros de consulta (URL)
+query_params = st.experimental_get_query_params()
 page = query_params.get("page", ["home"])[0]
 
 # Asignar clases CSS condicionales
@@ -126,4 +126,4 @@ if page == "home":
 elif page == "dashboard":
     dashboard.dashboard_page()  # Asegúrate de que esta función esté correctamente definida
 elif page == "modelos":
-    modelos_ml.modelos_page()  # Asegúrate de que esta función esté correctamente definida
+    modelos.modelos_page()  # Asegúrate de que esta función esté correctamente definida
