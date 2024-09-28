@@ -41,11 +41,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Función para la navegación mediante URL de consulta (query parameter)
+# Función para la navegación utilizando parámetros de URL (query parameter)
 def navigate_to(page):
     st.experimental_set_query_params(page=page)
 
-# Obtener la página actual desde los parámetros de consulta (URL)
+# Obtener la página actual desde los parámetros de consulta (URL) usando la versión experimental
 query_params = st.experimental_get_query_params()
 page = query_params.get("page", ["home"])[0]
 
