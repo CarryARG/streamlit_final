@@ -103,10 +103,3 @@ st.markdown(f"""
     </nav>
 """, unsafe_allow_html=True)
 
-# Contenido basado en la página seleccionada
-if page == "home":
-    home.home_page()  # Llama a la función home_page del archivo home.py
-elif page == "dashboard":
-    dashboard.dashboard_page()  # Llama a la función dashboard_page del archivo dashboard.py
-elif page == "modelos":
-    modelos.modelos_page()  # Llama a la función modelos_ml_page del archivo modelos_ml.py
