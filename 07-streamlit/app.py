@@ -58,9 +58,9 @@ st.markdown("""
 # HTML para el Navbar utilizando Bootstrap
 st.markdown(f"""
     <nav class="navbar-custom">
-        <a class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
-        <a class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
-        <a class="nav-item" onclick="window.location.href='/?page=modelos'">Modelos</a>
+        <button class="nav-item" onclick="window.location.href='/?page=home'">Home</button>
+        <button class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</button>
+        <button class="nav-item" onclick="window.location.href='/?page=modelos'">Modelos</button>
     </nav>
 """, unsafe_allow_html=True)
 
