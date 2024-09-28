@@ -1,7 +1,6 @@
 import streamlit as st
-
+import home  # Importar la página 'home.py'
 import base64
-from PIL import Image
 
 # Configuración general de la página (debe ir antes de cualquier otro comando de Streamlit)
 st.set_page_config(page_title="ARCOPE App", layout="wide")
@@ -45,61 +44,58 @@ def navigate_to(page):
 query_params = st.query_params
 page = query_params.get("page", ["home"])[0]
 
-# CSS para personalizar el navbar y eliminar los espacios sobrantes
+# Asignar clases CSS condicionales
+home_active = "active" if page == "home" else ""
+other_active = "active" if page == "otra_pagina" else ""
+
+# Menú de navegación con Bootstrap
 st.markdown("""
     <style>
-        /* Ocultar el menú de hamburguesa, el botón de compartir y el botón de editar */
-        #MainMenu, header, footer {
-            visibility: hidden;
-        }
-
-        /* Estilos de los botones en el navbar */
-        .nav-item {
-            background-color: #F2A649;
-            color: #FFF;
-            padding: 10px 20px;
-            border-radius: 5px;
-          }
-
-        /* Efecto hover en los botones del navbar */
-        .nav-item:hover {
-            background-color: #F25E3D; /* Color más oscuro para el hover */
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-        }
-
-        /* Estilos para centrar y justificar los elementos del navbar */
-        .navbar-custom {
-            background-color: #000000;
-            padding: 20px;
-            display: flex;
-            justify-content: space-around;
-            width: 100%; /* Ocupa todo el ancho de la pantalla */
-            margin: 0; /* Eliminar margen superior */
-            position: fixed; /* Fijar el navbar en la parte superior */
-            top: 0;
-            left: 0;
-            z-index: 1000; /* Asegurar que quede encima de otros elementos */
-        }
-
-        /* Eliminar el padding alrededor de la aplicación */
-        .css-18e3th9 {
-            padding: 0;
-        }
-
-        /* Ajustar margen superior del contenido para que no quede detrás del navbar */
-        .main-content {
-            margin-top: 80px;  /* Ajusta según la altura del navbar */
-        }
-
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    
+    .navbar a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+    
+    .content {
+        padding: 16px;
+        margin-top: 50px;
+    }
     </style>
-""", unsafe_allow_html=True)
 
-# HTML para el Navbar utilizando Bootstrap con los botones personalizados
-st.markdown(f"""
-    <nav class="navbar-custom">
-        <a href="#" class="nav-item" onclick="window.location.href='/?page=home'">Home</a>
-        <a href="#" class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</a>
-        <a href="#" class="nav-item" onclick="window.location.href='/?page=modelos'">Modelos</a>
-    </nav>
-""", unsafe_allow_html=True)
+    <div class="navbar">
+        <a href="#" class="{}" onclick="window.location.href='/?page=home'">Home</a>
+        <a href="#" class="{}" onclick="window.location.href='/?page=otra_pagina'">Otra Página</a>
+    </div>
+    """.format(
+    home_active="active" if page == "home" else "", 
+    other_active="active" if page == "otra_pagina" else ""
+), unsafe_allow_html=True)
 
+# Contenido basado en la página seleccionada
+if page == "home":
+    home.home_page()  # Llama a la función home_page del archivo home.py
+elif page == "otra_pagina":
+    st.write("Aquí puedes cargar otra página o funcionalidad")
