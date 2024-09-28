@@ -41,18 +41,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Función para la navegación utilizando parámetros de URL (query parameter)
-def navigate_to(page):
-    st.experimental_set_query_params(page=page)
-
-# Obtener la página actual desde los parámetros de consulta (URL) usando la versión experimental
-query_params = st.experimental_get_query_params()
+# Obtener la página actual desde los parámetros de consulta (URL)
+query_params = st.query_params  # Usamos st.query_params
 page = query_params.get("page", ["home"])[0]  # Esto recupera el valor de 'page' en la URL
 
+# Función para actualizar los parámetros de consulta (URL) y navegar entre páginas
+def update_query_params(page):
+    st.experimental_set_query_params(page=page)
 
-# Asignar clases CSS condicionales
-home_active = "active" if page == "home" else ""
-other_active = "active" if page == "otra_pagina" else ""
+
 
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown(""" 
