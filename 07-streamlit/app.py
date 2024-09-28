@@ -5,7 +5,7 @@ import modelos  # Importar la página 'modelos_ml.py'
 import base64
 
 # Configuración general de la página
-st.set_page_config(page_title="ARCOPE App", layout="wide", initial_sidebar_state="auto")
+st.set_page_config(page_title="ARCOPE App", layout="wide")
 st.cache_data.clear()  # Limpiar la caché al cargar la página
 
 # Incluir Bootstrap CSS y JavaScript
@@ -28,7 +28,7 @@ st.markdown("""
 
 # Obtener la página actual desde los parámetros de consulta
 query_params = st.query_params  # Usamos st.query_params
-page = query_params.get("page", ["home"])[0]  # Esto recupera el valor de 'page' en la URL
+page = query_params.get("page", ["home"])[0]  # Recupera el valor de 'page'
 
 # CSS para personalizar el navbar
 st.markdown("""
@@ -58,9 +58,9 @@ st.markdown("""
 # HTML para el Navbar utilizando Bootstrap
 st.markdown(f"""
     <nav class="navbar-custom">
-        <button class="nav-item" onclick="window.location.href='/?page=home'">Home</button>
-        <button class="nav-item" onclick="window.location.href='/?page=dashboard'">Dashboard</button>
-        <button class="nav-item" onclick="window.location.href='/?page=modelos'">Modelos</button>
+        <a class="nav-item" href="/?page=home">Home</a>
+        <a class="nav-item" href="/?page=dashboard">Dashboard</a>
+        <a class="nav-item" href="/?page=modelos">Modelos</a>
     </nav>
 """, unsafe_allow_html=True)
 
