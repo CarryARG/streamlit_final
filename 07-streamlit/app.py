@@ -1,5 +1,7 @@
 import streamlit as st
 import home  # Importar la página 'home.py'
+import dashboard  # Importar la página 'dashboard.py'
+import modelos_ml  # Importar la página 'modelos_ml.py'
 import base64
 
 # Configuración general de la página (debe ir antes de cualquier otro comando de Streamlit)
@@ -97,6 +99,16 @@ st.markdown("""
 
     </style>
 """, unsafe_allow_html=True)
+
+
+# Función para la navegación mediante URL de consulta (query parameter)
+def navigate_to(page):
+    st.experimental_set_query_params(page=page)
+
+# Obtener la página actual de los parámetros de consulta (URL)
+query_params = st.query_params
+page = query_params.get("page", ["home"])[0]
+
 
 # HTML para el Navbar utilizando Bootstrap con los botones personalizados
 st.markdown(f"""
