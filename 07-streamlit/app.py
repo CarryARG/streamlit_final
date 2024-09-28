@@ -45,12 +45,6 @@ st.markdown("""
 query_params = st.query_params  # Usamos st.query_params
 page = query_params.get("page", ["home"])[0]  # Esto recupera el valor de 'page' en la URL
 
-# Función para actualizar los parámetros de consulta (URL) y navegar entre páginas
-def update_query_params(page):
-    st.experimental_set_query_params(page=page)
-
-
-
 # CSS para personalizar el navbar y eliminar los espacios sobrantes
 st.markdown(""" 
     <style>
