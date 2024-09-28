@@ -3,7 +3,10 @@ import home  # Importar la página 'home.py'
 import base64
 
 # Configuración general de la página (debe ir antes de cualquier otro comando de Streamlit)
-st.set_page_config(page_title="ARCOPE App", layout="wide")
+st.set_page_config(page_title="ARCOPE App", layout="wide", initial_sidebar_state="auto")
+# Limpiar la caché al cargar la página
+st.cache_data.clear()
+
 
 # Función para cargar imágenes en base64
 def get_image_b64(image_path):
